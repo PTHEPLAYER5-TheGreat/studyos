@@ -1,4 +1,4 @@
-const ACCESS_CODE = "STUDY10";
+const ACCESS_CODE = "STUDYOS10";
 
 const DATA = [
   // =========================
@@ -1182,68 +1182,64 @@ let currentSubject = null;
 let currentFilter = "All";
 
 
-// ======================================================
-// ACCESS GATE
-// ======================================================
+// ===============================
+// STUDYOS ACCESS GATE
+// ===============================
 
-function unlock() {
+const ACCESS_CODE = "STUDYOS10";
+
+const gate = document.getElementById("gate");
+const app = document.getElementById("app");
+const codeInput = document.getElementById("code");
+const enterBtn = document.getElementById("enter");
+const errorMsg = document.getElementById("err");
+const lockBtn = document.getElementById("lock");
+
+// Check if already unlocked
+if (sessionStorage.getItem("studyos_unlocked") === "true") {
   gate.classList.add("hidden");
   app.classList.remove("hidden");
-
-  sessionStorage.setItem("studyos_unlocked", "yes");
-
-  if (codeInput) codeInput.value = "";
-  if (err) err.textContent = "";
-
-  setTimeout(() => {
-    if (searchInput) searchInput.focus();
-  }, 150);
 }
 
-function lockApp() {
+// Enter button
+enterBtn.addEventListener("click", unlock);
+
+// Press Enter inside the code box
+codeInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    unlock();
+  }
+});
+
+function unlock() {
+  const enteredCode = codeInput.value.trim();
+
+  if (enteredCode === ACCESS_CODE) {
+    sessionStorage.setItem("studyos_unlocked", "true");
+
+    gate.classList.add("hidden");
+    app.classList.remove("hidden");
+
+    codeInput.value = "";
+    errorMsg.textContent = "";
+  } else {
+    errorMsg.textContent = "Incorrect access code.";
+    codeInput.value = "";
+    codeInput.focus();
+  }
+}
+
+// Lock button
+lockBtn.addEventListener("click", () => {
   sessionStorage.removeItem("studyos_unlocked");
 
   app.classList.add("hidden");
   gate.classList.remove("hidden");
 
-  if (codeInput) {
-    codeInput.value = "";
-    setTimeout(() => codeInput.focus(), 100);
-  }
-}
-
-function checkCode() {
-  const entered = codeInput.value.trim();
-
-  if (entered === ACCESS_10C_CODE) {
-    unlock();
-  } else {
-    err.textContent = "Wrong access code. Try again.";
-    codeInput.classList.add("shake");
-
-    setTimeout(() => {
-      codeInput.classList.remove("shake");
-    }, 400);
-
-    codeInput.select();
-  }
-}
-
-if (enterBtn) {
-  enterBtn.addEventListener("click", checkCode);
-}
-
-if (codeInput) {
-  codeInput.addEventListener("keydown", e => {
-    if (e.key === "Enter") {
-      checkCode();
-    }
-  });
-}
-
-if (sessionStorage.getItem("studyos_unlocked") === "yes") {
-  unlock();
-}
+  codeInput.value = "";
+  errorMsg.textContent = "";
+  codeInput.focus();
+});
 
 
 // ======================================================
