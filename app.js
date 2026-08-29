@@ -9,6 +9,7 @@ const DATA = [
             "Refraction is bending of light due to change in speed between media.",
             "Lens formula: 1/f = 1/v − 1/u; m = v/u.",
             "Power of lens P = 1/f (metre), unit dioptre (D)."
+            "TESTING"
         ]
     },
 
