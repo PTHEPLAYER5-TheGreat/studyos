@@ -1,1190 +1,12 @@
-const ACCESS_CODE = "STUDYOS10";
-
-const DATA = [
-  // =========================
-  // SCIENCE — PHYSICS
-  // =========================
-
-  {
-    subject:"Science", group:"Physics", title:"Light – Reflection and Refraction",
-    points:[
-      "Reflection is the bouncing back of light from a surface.",
-      "Laws of reflection: angle of incidence equals angle of reflection, and the incident ray, reflected ray and normal lie in the same plane.",
-      "Mirror formula: 1/f = 1/v + 1/u.",
-      "Magnification for a mirror: m = hᵢ/hₒ = −v/u.",
-      "A concave mirror can form real or virtual images depending on the position of the object.",
-      "A convex mirror always forms a virtual, erect and diminished image and provides a wide field of view.",
-      "Refraction is the change in direction of light when it passes obliquely from one transparent medium to another.",
-      "Lens formula: 1/f = 1/v − 1/u. Magnification of a lens: m = v/u.",
-      "Power of a lens: P = 1/f, where f is in metres. Unit is dioptre (D).",
-      "A convex lens is converging, while a concave lens is diverging."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Physics", title:"The Human Eye and the Colourful World",
-    points:[
-      "The human eye acts like a natural optical instrument and forms an image on the retina.",
-      "The iris controls the amount of light entering the eye by changing the size of the pupil.",
-      "Accommodation is the ability of the eye lens to change its focal length to focus on objects at different distances.",
-      "The near point of a normal human eye is about 25 cm and its far point is infinity.",
-      "Myopia causes difficulty in seeing distant objects and is corrected using a concave lens.",
-      "Hypermetropia causes difficulty in seeing nearby objects and is corrected using a convex lens.",
-      "Presbyopia occurs mainly due to ageing and reduced power of accommodation.",
-      "Dispersion is the splitting of white light into its constituent colours.",
-      "The blue colour of the sky is mainly due to scattering of shorter wavelengths of light.",
-      "The reddish appearance of the Sun near sunrise and sunset is due to scattering of light."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Physics", title:"Electricity",
-    points:[
-      "Electric current is the rate of flow of electric charge: I = Q/t.",
-      "Potential difference is work done per unit charge: V = W/Q.",
-      "Ohm's law states that, at constant temperature, V is directly proportional to I: V = IR.",
-      "Resistance depends on length, area of cross-section, nature of material and temperature.",
-      "Resistance formula: R = ρl/A, where ρ is resistivity.",
-      "In series combination, current is the same through every resistor and total resistance is R = R₁ + R₂ + R₃.",
-      "In parallel combination, potential difference is the same across each resistor and 1/R = 1/R₁ + 1/R₂ + 1/R₃.",
-      "Electric power: P = VI = I²R = V²/R.",
-      "Electrical energy is commonly measured commercially in kilowatt-hour (kWh).",
-      "Joule's heating law: H = I²Rt."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Physics", title:"Magnetic Effects of Electric Current",
-    points:[
-      "A current-carrying conductor produces a magnetic field around it.",
-      "The direction of the magnetic field around a straight conductor is found using the right-hand thumb rule.",
-      "The magnetic field of a current-carrying solenoid resembles the field of a bar magnet.",
-      "Increasing current increases the strength of the magnetic field.",
-      "Fleming's left-hand rule gives the direction of force on a current-carrying conductor in a magnetic field.",
-      "An electric motor converts electrical energy into mechanical energy.",
-      "Electromagnetic induction is the production of electric current due to a changing magnetic field.",
-      "Fleming's right-hand rule gives the direction of induced current in a conductor.",
-      "An electric generator converts mechanical energy into electrical energy.",
-      "Domestic circuits use live, neutral and earth wires, with safety devices such as fuses or MCBs."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Physics", title:"Sources of Energy",
-    points:[
-      "A good source of energy should provide a large amount of energy, be convenient, economical and preferably have low environmental impact.",
-      "Renewable sources include solar, wind, hydro, biomass and geothermal energy.",
-      "Non-renewable sources include coal, petroleum and natural gas.",
-      "Fossil fuels are major sources of energy but cause air pollution and increase greenhouse-gas emissions.",
-      "Solar cells convert solar energy directly into electrical energy using the photovoltaic effect.",
-      "Hydroelectric power uses the potential energy of stored water to generate electricity.",
-      "Wind energy uses moving air to rotate turbines connected to generators.",
-      "Nuclear energy is released during nuclear reactions and can produce large amounts of energy.",
-      "Biogas is produced by the anaerobic decomposition of organic matter.",
-      "No energy source is completely ideal; environmental, economic and availability factors must be considered."
-    ]
-  },
-
-  // =========================
-  // SCIENCE — CHEMISTRY
-  // =========================
-
-  {
-    subject:"Science", group:"Chemistry", title:"Chemical Reactions and Equations",
-    points:[
-      "A chemical reaction produces one or more new substances with different properties.",
-      "A chemical equation represents a chemical reaction using symbols and formulae.",
-      "A balanced chemical equation obeys the law of conservation of mass.",
-      "Combination reaction: two or more substances combine to form a single product.",
-      "Decomposition reaction: one compound breaks into two or more simpler substances.",
-      "Displacement reaction: a more reactive element displaces a less reactive element.",
-      "Double displacement reactions involve exchange of ions between two compounds.",
-      "Oxidation can involve addition of oxygen, removal of hydrogen or loss of electrons.",
-      "Reduction can involve removal of oxygen, addition of hydrogen or gain of electrons.",
-      "Corrosion and rancidity are important effects of oxidation."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Chemistry", title:"Acids, Bases and Salts",
-    points:[
-      "Acids produce H⁺ ions in aqueous solution, while bases produce OH⁻ ions.",
-      "The pH scale generally ranges from 0 to 14 and indicates acidic or basic nature.",
-      "pH below 7 is acidic, pH 7 is neutral and pH above 7 is basic.",
-      "Acid + base → salt + water is called neutralisation.",
-      "Acids react with many metals to produce salt and hydrogen gas.",
-      "Acids react with carbonates and hydrogencarbonates to release carbon dioxide.",
-      "Baking soda is sodium hydrogencarbonate: NaHCO₃.",
-      "Washing soda is sodium carbonate decahydrate: Na₂CO₃·10H₂O.",
-      "Bleaching powder is used for bleaching and disinfecting water.",
-      "Plaster of Paris is calcium sulphate hemihydrate and is used for casts and moulds."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Chemistry", title:"Metals and Non-metals",
-    points:[
-      "Metals are generally lustrous, malleable, ductile and good conductors of heat and electricity.",
-      "Non-metals are generally poor conductors, though graphite is an important exception.",
-      "The reactivity series arranges metals according to their tendency to lose electrons.",
-      "Highly reactive metals such as sodium and potassium are extracted by electrolysis.",
-      "Moderately reactive metals can often be obtained by reduction of their oxides.",
-      "Ionic compounds usually have high melting and boiling points.",
-      "Ionic compounds conduct electricity in molten or aqueous states because ions are free to move.",
-      "Corrosion is the gradual deterioration of metals due to environmental reactions.",
-      "Alloys are homogeneous mixtures of metals or a metal with another element.",
-      "Examples include brass, bronze, stainless steel and solder."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Chemistry", title:"Carbon and its Compounds",
-    points:[
-      "Carbon has valency four and forms four covalent bonds.",
-      "Catenation is the ability of carbon atoms to form bonds with other carbon atoms.",
-      "Saturated hydrocarbons contain only single bonds.",
-      "Unsaturated hydrocarbons contain double or triple bonds.",
-      "A homologous series has the same functional group and successive members differ by –CH₂–.",
-      "Important functional groups include alcohol, aldehyde, ketone and carboxylic acid.",
-      "Ethanol is an alcohol and ethanoic acid is a carboxylic acid.",
-      "Esterification occurs when an alcohol reacts with a carboxylic acid in the presence of an acid catalyst.",
-      "Soap molecules have a hydrophilic end and a hydrophobic hydrocarbon tail.",
-      "Important reactions of carbon compounds include combustion, oxidation, addition, substitution and esterification."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Chemistry", title:"Periodic Classification of Elements",
-    points:[
-      "The modern periodic law states that properties of elements are periodic functions of their atomic numbers.",
-      "The modern periodic table contains 18 groups and 7 periods.",
-      "Elements in the same group generally have similar valence-electron configurations and similar chemical properties.",
-      "Valency generally remains constant across a group but shows a regular trend across a period.",
-      "Atomic size generally decreases from left to right across a period.",
-      "Atomic size generally increases from top to bottom in a group.",
-      "Metallic character generally decreases across a period and increases down a group.",
-      "Non-metallic character generally increases across a period and decreases down a group.",
-      "Noble gases have stable outer shells and are generally chemically unreactive.",
-      "The periodic table helps predict properties and chemical behaviour of elements."
-    ]
-  },
-
-  // =========================
-  // SCIENCE — BIOLOGY
-  // =========================
-
-  {
-    subject:"Science", group:"Biology", title:"Life Processes",
-    points:[
-      "Life processes are activities necessary for maintaining an organism's life.",
-      "Major life processes include nutrition, respiration, transportation and excretion.",
-      "Photosynthesis uses carbon dioxide, water, sunlight and chlorophyll to produce food.",
-      "Human digestion involves ingestion, digestion, absorption, assimilation and egestion.",
-      "Aerobic respiration uses oxygen and releases more energy than anaerobic respiration.",
-      "In plants, xylem transports water and minerals while phloem transports food.",
-      "The human circulatory system includes the heart, blood and blood vessels.",
-      "Kidneys remove nitrogenous wastes from blood and maintain water and ion balance.",
-      "The functional unit of the kidney is the nephron.",
-      "Plants exchange gases mainly through stomata and lose water through transpiration."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Biology", title:"Control and Coordination",
-    points:[
-      "Control and coordination allow organisms to respond appropriately to internal and external stimuli.",
-      "The neuron is the structural and functional unit of the nervous system.",
-      "A reflex action is a rapid, automatic response to a stimulus.",
-      "The brain consists broadly of forebrain, midbrain and hindbrain regions.",
-      "The spinal cord plays an important role in reflex actions and communication with the brain.",
-      "Plants respond to stimuli through growth movements and chemical coordination.",
-      "Auxin promotes cell growth and is involved in phototropic responses.",
-      "Plant hormones include auxin, gibberellin, cytokinin, abscisic acid and ethylene.",
-      "Animal hormones include insulin, thyroxine, adrenaline and growth hormone.",
-      "The endocrine system coordinates many body functions through hormones released into the blood."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Biology", title:"How do Organisms Reproduce?",
-    points:[
-      "Reproduction produces new individuals and ensures continuity of species.",
-      "Asexual reproduction generally involves a single parent and produces genetically similar offspring.",
-      "Asexual methods include fission, budding, fragmentation, regeneration and vegetative propagation.",
-      "Sexual reproduction involves formation and fusion of male and female gametes.",
-      "In flowering plants, pollination transfers pollen from anther to stigma.",
-      "Fertilisation results in the formation of a zygote.",
-      "Human males produce sperm while human females produce ova.",
-      "The embryo develops in the uterus after implantation.",
-      "Reproductive health includes hygiene, awareness and responsible prevention of reproductive infections.",
-      "Variation generated during reproduction contributes to the survival and evolution of populations."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Biology", title:"Heredity and Evolution",
-    points:[
-      "Heredity is the transmission of characteristics from parents to offspring.",
-      "Genes are units of heredity located on chromosomes.",
-      "Mendel used pea plants to study inheritance and proposed important principles of heredity.",
-      "A dominant trait can be expressed in the presence of a contrasting recessive trait.",
-      "Genotype refers to genetic makeup, while phenotype refers to observable characteristics.",
-      "Sex determination in humans involves XX chromosomes in females and XY chromosomes in males.",
-      "Variations arise due to genetic changes and differences in reproduction.",
-      "Natural selection can favour variations that improve survival or reproduction.",
-      "Fossils provide evidence about organisms that lived in the past.",
-      "Homologous organs provide evidence of evolutionary relationships and common ancestry."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Biology", title:"Our Environment",
-    points:[
-      "An ecosystem consists of living components and non-living components interacting with each other.",
-      "Producers make food, while consumers depend directly or indirectly on producers.",
-      "Decomposers break down dead organisms and return nutrients to the environment.",
-      "A food chain represents the transfer of food and energy between organisms.",
-      "Only a small fraction of energy passes from one trophic level to the next.",
-      "Food webs show interconnected food chains within an ecosystem.",
-      "Biological magnification causes certain non-biodegradable chemicals to become more concentrated at higher trophic levels.",
-      "Biodegradable substances can be broken down naturally by microorganisms.",
-      "Non-biodegradable waste persists for long periods and can cause environmental problems.",
-      "The ozone layer absorbs much of the harmful ultraviolet radiation reaching Earth."
-    ]
-  },
-
-  {
-    subject:"Science", group:"Biology", title:"Sustainable Management of Natural Resources",
-    points:[
-      "Sustainable management means using resources carefully while protecting them for future generations.",
-      "Forests provide biodiversity, soil protection, water regulation and livelihood resources.",
-      "Local communities can play an important role in conservation and responsible resource use.",
-      "Wildlife conservation protects biodiversity and ecological balance.",
-      "Rainwater harvesting helps collect water and can recharge groundwater.",
-      "Coal and petroleum are limited resources formed over very long geological periods.",
-      "The 3R principle stands for Reduce, Reuse and Recycle.",
-      "Large dams provide benefits such as irrigation and electricity but can also have social and environmental impacts.",
-      "Sustainable development requires balancing environmental protection with human needs.",
-      "Resource conservation is important because natural resources are limited and unevenly distributed."
-    ]
-  },
-
-  // =========================
-  // ENGLISH — PROSE
-  // =========================
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"A Letter to God",
-    points:[
-      "Lencho is a poor farmer whose crop is destroyed by a severe hailstorm.",
-      "Lencho has complete faith in God and expects divine help.",
-      "He writes a letter asking God for money to recover from the loss.",
-      "The postmaster is impressed by Lencho's faith and decides to help him.",
-      "The post office employees collect money and send it to Lencho.",
-      "Lencho receives less money than he requested and assumes the post office employees stole the rest.",
-      "The story creates irony because the people Lencho suspects are actually the ones who helped him.",
-      "Major themes: faith, innocence, kindness, irony and human generosity."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"Nelson Mandela – Long Walk to Freedom",
-    points:[
-      "Mandela describes the inauguration of South Africa's first democratic government.",
-      "The event represents victory over the apartheid system.",
-      "Apartheid denied political and social equality to Black South Africans.",
-      "Mandela honours the people who sacrificed their lives for freedom.",
-      "He explains that courage does not mean absence of fear but victory over fear.",
-      "He believes that both the oppressed and the oppressor lose their humanity under injustice.",
-      "Freedom is presented as a responsibility rather than merely a personal privilege.",
-      "Major themes: freedom, equality, courage, sacrifice, dignity and reconciliation."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"Stories About Flying – His First Flight",
-    points:[
-      "A young seagull is afraid to make his first flight.",
-      "His siblings have already learned to fly and leave him behind.",
-      "The young bird stays alone on the ledge because of fear.",
-      "His parents encourage him but he still lacks confidence.",
-      "His mother finally uses food to tempt him into leaving the ledge.",
-      "The seagull discovers that his wings can support him.",
-      "His fear disappears once he actually attempts to fly.",
-      "Themes: fear, courage, confidence, independence and parental encouragement."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"Stories About Flying – The Black Aeroplane",
-    points:[
-      "The narrator is flying his old Dakota towards England.",
-      "He sees dark storm clouds ahead but decides to continue.",
-      "The storm causes poor visibility and makes navigation difficult.",
-      "His instruments become unreliable during the flight.",
-      "A mysterious black aeroplane appears and guides him through the storm.",
-      "The narrator lands safely and asks about the other pilot.",
-      "The control tower reports that no other aircraft was visible on the radar.",
-      "The unexplained ending creates mystery and leaves the identity of the black aeroplane uncertain."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"From the Diary of Anne Frank",
-    points:[
-      "Anne Frank begins writing a diary because she feels she has no true friend to confide in.",
-      "She names her diary Kitty and treats it like a trusted companion.",
-      "Anne describes her school, classmates and teachers with humour and honesty.",
-      "She considers writing a useful way to understand herself and her experiences.",
-      "Mr Keesing repeatedly punishes Anne for talking in class.",
-      "Anne responds creatively through essays about talking.",
-      "Her final humorous response impresses Mr Keesing and changes his attitude.",
-      "Themes: adolescence, loneliness, friendship, self-expression and observation."
-    ]
-  },
-
- {
-    subject:"English", group:"First Flight – Prose", title:"Glimpses of India – A Baker from Goa",
-    points:[
-      "The chapter describes the traditional importance of bakers in Goa.",
-      "Bread-making is shown as an important part of Goan culture.",
-      "The narrator remembers the baker visiting homes with his traditional dress and equipment.",
-      "Bread was associated with everyday meals and important celebrations.",
-      "Traditional Portuguese influence can be seen in Goan baking customs.",
-      "The baker's arrival was familiar and eagerly awaited by children.",
-      "The chapter connects food with childhood memories and cultural identity.",
-      "Themes: tradition, culture, food, memories and local heritage."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"Glimpses of India – Coorg",
-    points:[
-      "Coorg, also known as Kodagu, is a beautiful region of Karnataka.",
-      "The region is known for coffee plantations, forests and scenic landscapes.",
-      "The chapter describes the Kodavu people and their distinctive culture.",
-      "The people of Coorg are associated with bravery and a strong martial tradition.",
-      "The region has opportunities for adventure activities such as river rafting and trekking.",
-      "Coffee cultivation is an important feature of the local economy and landscape.",
-      "The chapter combines descriptions of geography, culture, history and tourism.",
-      "Themes: natural beauty, culture, tradition, adventure and regional identity."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"Glimpses of India – Tea from Assam",
-    points:[
-      "Rajvir and Pranjol travel by train through Assam.",
-      "Rajvir is fascinated by the vast tea gardens of Assam.",
-      "Pranjol's family is connected with the tea industry.",
-      "The chapter describes the carefully maintained rows of tea plants.",
-      "Rajvir shares legends about the origin and discovery of tea.",
-      "Tea cultivation became economically important in Assam.",
-      "The journey introduces readers to the landscape and culture associated with tea production.",
-      "Themes: nature, travel, tea cultivation, history and cultural geography."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"Mijbil the Otter",
-    points:[
-      "The narrator decides to keep an otter as a pet.",
-      "He names the otter Mijbil, or Mij for short.",
-      "Mij is intelligent, playful and highly curious.",
-      "Water becomes one of Mij's favourite sources of entertainment.",
-      "The narrator develops a strong bond with Mij.",
-      "Travelling with Mij creates difficulties because airlines had rules about animals.",
-      "Mij's playful behaviour attracts attention from people around him.",
-      "Themes: companionship, animal behaviour, affection, curiosity and human-animal relationships."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"Madam Rides the Bus",
-    points:[
-      "Valli is an eight-year-old girl fascinated by the bus travelling between her village and town.",
-      "She carefully observes the bus and learns details about its journey.",
-      "Valli saves money secretly for a bus ride.",
-      "She plans the journey carefully and travels without an adult accompanying her.",
-      "The conductor affectionately calls her 'madam' because of her confident behaviour.",
-      "The journey gives Valli a sense of independence and excitement.",
-      "On the return journey she sees a dead cow, which changes her mood.",
-      "Themes: curiosity, independence, observation, maturity and the realities of life."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"The Sermon at Benares",
-    points:[
-      "Kisa Gotami loses her only son and is overwhelmed by grief.",
-      "She asks others for medicine to bring her son back.",
-      "The Buddha tells her to collect mustard seeds from a house untouched by death.",
-      "Kisa discovers that every household has experienced death.",
-      "She gradually understands that death is universal and unavoidable.",
-      "The Buddha teaches that attachment and grief are part of human suffering.",
-      "Acceptance of reality can help a person overcome excessive sorrow.",
-      "Themes: death, grief, acceptance, wisdom, suffering and detachment."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Prose", title:"The Proposal",
-    points:[
-      "Lomov visits Chubukov's house intending to propose marriage to Natalya.",
-      "Instead of calmly proposing, Lomov and Natalya begin arguing.",
-      "Their arguments concern Oxen Meadows and the superiority of their dogs.",
-      "Lomov becomes physically and emotionally agitated during the quarrels.",
-      "Natalya wants to marry Lomov but continues arguing with him.",
-      "Chubukov eventually encourages the marriage.",
-      "The play uses exaggeration and absurd arguments to create comedy.",
-      "Themes: marriage, greed, pride, social expectations, conflict and farce."
-    ]
-  },
-
-  // =========================
-  // ENGLISH — POEMS
-  // =========================
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"Dust of Snow",
-    points:[
-      "The poet describes a small incident involving a crow and a hemlock tree.",
-      "Snow falls from the tree onto the poet.",
-      "The simple natural event changes the poet's mood.",
-      "The poet's regretful day is partly saved by this unexpected moment.",
-      "Nature can influence human emotions in subtle ways.",
-      "The crow and hemlock are traditionally associated with negative ideas, yet they create a positive effect here.",
-      "The poem suggests that even small moments can bring hope.",
-      "Themes: nature, mood, hope, transformation and unexpected joy."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"Fire and Ice",
-    points:[
-      "The poem considers possible ways in which the world could end.",
-      "Fire represents desire, greed and uncontrolled passion.",
-      "Ice represents hatred, coldness and emotional hostility.",
-      "Both desire and hatred are presented as destructive forces.",
-      "The poem is short but conveys a powerful warning about human emotions.",
-      "Fire and ice work as contrasting symbols.",
-      "The poet suggests that either extreme emotion could cause destruction.",
-      "Themes: desire, hatred, destruction, human nature and apocalypse."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"A Tiger in the Zoo",
-    points:[
-      "The poem contrasts a tiger's life in captivity with its natural freedom.",
-      "The tiger moves silently inside its cage.",
-      "Its strength is useless because it cannot roam freely.",
-      "In the forest, the tiger would hunt and move naturally through its habitat.",
-      "The tiger's frustration represents the cruelty of captivity.",
-      "The poem highlights the importance of freedom for wild animals.",
-      "The contrast between cage and jungle is central to the poem.",
-      "Themes: freedom, captivity, oppression, nature and human control."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"How to Tell Wild Animals",
-    points:[
-      "The poem gives humorous ways of identifying dangerous wild animals.",
-      "The lion, tiger, leopard, bear and other animals are described playfully.",
-      "The poet uses exaggeration to create comic situations.",
-      "Rhyme and rhythm make the poem entertaining.",
-      "The poem combines information about animals with humour.",
-      "The speaker's suggestions are intentionally absurd and dangerous.",
-      "The poem uses imagery and playful descriptions.",
-      "Themes: humour, animals, rhyme, exaggeration and comic tone."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"The Ball Poem",
-    points:[
-      "A boy loses his ball and experiences sadness.",
-      "The lost ball becomes a symbol of loss and attachment.",
-      "The boy must learn that possessions can be lost.",
-      "The experience teaches him responsibility and emotional maturity.",
-      "The poet does not simply replace the ball because the lesson is more important.",
-      "Loss is presented as a natural part of growing up.",
-      "The boy begins learning how to cope with grief independently.",
-      "Themes: loss, maturity, responsibility, growing up and acceptance."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"Amanda!",
-    points:[
-      "Amanda is repeatedly instructed and corrected by an adult.",
-      "She escapes into imaginary worlds to experience freedom.",
-      "Her imagination reveals her desire for independence and peace.",
-      "The poem shows the conflict between adult expectations and a child's inner world.",
-      "The repeated instructions create a sense of pressure.",
-      "Amanda imagines different identities and situations where she is free.",
-      "The poem asks readers to consider the emotional needs of children.",
-      "Themes: childhood, freedom, pressure, imagination and parental control."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"The Trees",
-    points:[
-      "The trees are presented as if they are trying to escape from a house.",
-      "The house symbolises human control or confinement.",
-      "The trees naturally belong in the open environment.",
-      "The poem uses personification by giving trees human-like actions.",
-      "The movement of the trees creates a strong image of liberation.",
-      "Nature is portrayed as powerful and persistent.",
-      "The poem can also be interpreted as a symbolic expression of freedom.",
-      "Themes: freedom, nature, confinement, human control and liberation."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"Fog",
-    points:[
-      "The poem compares fog to a cat.",
-      "The fog arrives silently and unexpectedly.",
-      "The cat comparison creates a clear visual image of quiet movement.",
-      "The fog seems to watch the city before disappearing.",
-      "The poem uses metaphor as its central poetic device.",
-      "Its short structure mirrors the brief and mysterious movement of fog.",
-      "The poem creates atmosphere through imagery.",
-      "Themes: nature, mystery, silence, imagery and transience."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"The Tale of Custard the Dragon",
-    points:[
-      "Belinda lives with several pets including Custard the dragon.",
-      "Custard is mocked because he appears timid and constantly asks for a safe cage.",
-      "The other animals boast about their courage.",
-      "A pirate suddenly enters and creates real danger.",
-      "Custard is the one who actually confronts the pirate.",
-      "The poem contrasts boasting with genuine courage.",
-      "After the danger passes, the other characters return to boasting.",
-      "Themes: courage, humility, appearance versus reality, bravery and irony."
-    ]
-  },
-
-  {
-    subject:"English", group:"First Flight – Poems", title:"For Anne Gregory",
-    points:[
-      "The poem discusses whether human love is based on physical beauty.",
-      "The speaker suggests that outward appearance can influence attraction.",
-      "Anne Gregory's hair represents external beauty.",
-      "The poem questions whether people can love someone for their inner self alone.",
-      "The final idea introduces a spiritual perspective on true love.",
-      "Human attraction is contrasted with divine or deeper love.",
-      "The poem explores the difference between physical beauty and inner worth.",
-      "Themes: beauty, love, appearance, inner qualities and spirituality."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"A Triumph of Surgery",
-    points:[
-      "Tricki is a small dog whose health suffers because Mrs Pumphrey overfeeds him.",
-      "Mrs Pumphrey gives Tricki excessive food and little exercise.",
-      "Dr Herriot realises that Tricki needs a controlled routine rather than medicine.",
-      "Tricki is taken to the surgery and placed on a simple diet.",
-      "The other dogs encourage Tricki to become active.",
-      "Tricki gradually becomes healthier through exercise and controlled food.",
-      "Mrs Pumphrey believes the doctor has performed a complicated medical treatment.",
-      "Themes: responsible pet care, discipline, overindulgence and affection."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"The Thief's Story",
-    points:[
-      "Hari Singh is a young thief who frequently changes his name.",
-      "He approaches Anil because he believes Anil will be easy to deceive.",
-      "Anil is kind and agrees to employ Hari despite knowing little about him.",
-      "Hari learns cooking and basic education while living with Anil.",
-      "Hari steals Anil's money but later begins to feel guilty.",
-      "He realises that education and trust may give him a better future.",
-      "Hari returns the stolen money without Anil openly accusing him.",
-      "Themes: trust, education, reform, kindness, honesty and second chances."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"The Midnight Visitor",
-    points:[
-      "Ausable is a secret agent who does not match the traditional image of a spy.",
-      "Fowler initially expects an exciting and physically impressive agent.",
-      "Max enters Ausable's room and threatens him with a weapon.",
-      "Ausable invents a story about a balcony outside the window.",
-      "He also convinces Max that the police are arriving.",
-      "Max panics and falls for Ausable's deception.",
-      "Ausable defeats Max through intelligence and presence of mind.",
-      "Themes: intelligence, wit, deception, appearance versus reality and presence of mind."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"A Question of Trust",
-    points:[
-      "Horace Danby appears respectable but secretly commits thefts.",
-      "He steals once a year to finance his collection of rare books.",
-      "He carefully plans a robbery at Shotover Grange.",
-      "A woman pretending to be the owner tricks Horace into opening the safe.",
-      "Horace removes his gloves while following her instructions.",
-      "The woman escapes with the jewels and leaves Horace responsible for the crime.",
-      "Horace is later arrested because his fingerprints provide evidence.",
-      "Themes: deception, irony, appearances, crime and misplaced trust."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"Footprints Without Feet",
-    points:[
-      "Griffin is a scientist who discovers how to make the human body invisible.",
-      "His scientific discovery gives him unusual powers.",
-      "Instead of using his invention responsibly, Griffin uses it for selfish purposes.",
-      "He enters places secretly and steals necessities.",
-      "He creates fear and confusion because people cannot see him.",
-      "His invisibility does not make him morally superior.",
-      "The story highlights the danger of scientific knowledge without ethical responsibility.",
-      "Themes: science, misuse of knowledge, responsibility, lawlessness and morality."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"The Making of a Scientist",
-    points:[
-      "Richard Ebright develops a strong interest in butterflies and scientific observation.",
-      "His mother plays an important role in encouraging his curiosity.",
-      "He learns to collect, observe and classify specimens carefully.",
-      "Scientific experiments teach him to investigate rather than simply memorise.",
-      "His projects gradually become more advanced.",
-      "He develops qualities such as determination, discipline and curiosity.",
-      "His success demonstrates the importance of guidance and continuous effort.",
-      "Themes: curiosity, scientific thinking, perseverance, discipline and parental support."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"The Necklace",
-    points:[
-      "Matilda Loisel is dissatisfied with her modest lifestyle.",
-      "She dreams of wealth, luxury and social status.",
-      "She borrows a necklace from her friend Madame Forestier for a party.",
-      "Matilda loses the necklace after the event.",
-      "She and her husband replace it with an expensive necklace and spend years repaying the debt.",
-      "Years later Matilda discovers that the original necklace was an imitation.",
-      "The ending creates powerful situational irony.",
-      "Themes: vanity, appearance, social status, materialism, honesty and irony."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"Bholi",
-    points:[
-      "Bholi is considered different because of her appearance and speech difficulties.",
-      "She receives little attention and affection in her early life.",
-      "Her teacher treats her kindly and encourages her to speak.",
-      "Education gradually increases Bholi's confidence.",
-      "Bholi becomes capable of thinking independently.",
-      "Her marriage proposal comes from Bishamber, who later demands dowry.",
-      "Bholi refuses to marry someone who insults her and demands dowry.",
-      "Themes: education, self-respect, confidence, dignity, empowerment and social reform."
-    ]
-  },
-
-  {
-    subject:"English", group:"Footprints Without Feet", title:"The Book That Saved the Earth",
-    points:[
-      "The play presents a humorous account of a possible Martian invasion.",
-      "Think-Tank is the overconfident leader of the Martians.",
-      "The Martians misunderstand ordinary books and nursery rhymes.",
-      "A book is mistakenly interpreted as a dangerous Earth weapon.",
-      "The misunderstanding causes the Martians to abandon their invasion plan.",
-      "The play satirises arrogance and poor understanding.",
-      "Books are presented as powerful sources of knowledge.",
-      "Themes: humour, satire, misunderstanding, intelligence, books and knowledge."
-    ]
-  },
-  // =========================
-  // ENGLISH — LANGUAGE
-  // =========================
-
-  {
-    subject:"English", group:"Writing & Language", title:"Formal Letter",
-    points:[
-      "Begin with the sender's address followed by the date.",
-      "Write the receiver's designation and address clearly.",
-      "Use an appropriate subject line that states the purpose.",
-      "Use a formal salutation such as Sir/Madam.",
-      "Organise the body into clear paragraphs: purpose, details and requested action.",
-      "Maintain a polite, formal and objective tone.",
-      "Avoid unnecessary personal stories, slang and informal expressions.",
-      "End with a suitable complimentary close and the writer's name/designation as required."
-    ]
-  },
-
-  {
-    subject:"English", group:"Writing & Language", title:"Analytical Paragraph",
-    points:[
-      "First identify what type of data is given: chart, graph, table or other visual information.",
-      "Write a clear introductory sentence explaining what the data represents.",
-      "Identify the highest and lowest values where relevant.",
-      "Compare important similarities and differences.",
-      "Mention major trends, patterns, increases and decreases.",
-      "Use figures accurately when they strengthen the comparison.",
-      "Avoid simply listing every value from the visual.",
-      "End with an overall inference based only on the given information."
-    ]
-  },
-
-  {
-    subject:"English", group:"Writing & Language", title:"Grammar",
-    points:[
-      "Revise the prescribed grammar areas thoroughly through practice questions.",
-      "Tenses show the time or state of an action.",
-      "Reported speech requires attention to tense, pronouns, time expressions and reporting verbs.",
-      "Modals express ideas such as ability, possibility, permission, obligation and advice.",
-      "Subject-verb agreement requires the verb to match the subject in number and person.",
-      "Check whether the sentence is affirmative, negative or interrogative before choosing an answer.",
-      "Use context to determine the intended grammatical form.",
-      "Always reread the completed sentence to check meaning and grammatical agreement."
-    ]
-  },
-
-  {
-    subject:"English", group:"Writing & Language", title:"Reading Comprehension",
-    points:[
-      "Read the questions carefully before deciding which parts of the passage are relevant.",
-      "Identify keywords in each question and locate related information.",
-      "For factual questions, use information directly supported by the passage.",
-      "For inference questions, combine clues from the passage to reach a logical conclusion.",
-      "Avoid adding information that is not supported by the text.",
-      "For vocabulary questions, use the context around the word.",
-      "Answer precisely rather than copying large portions of the passage.",
-      "Check every answer against the passage before submitting."
-    ]
-  },
-
-  // =========================
-  // SST — HISTORY
-  // =========================
-
-  {
-    subject:"SST", group:"History", title:"The Rise of Nationalism in Europe",
-    points:[
-      "The French Revolution introduced ideas of liberty, equality and fraternity.",
-      "The revolution helped develop the idea that sovereignty belongs to the nation.",
-      "Napoleon introduced administrative and legal reforms but also established control over conquered territories.",
-      "The Congress of Vienna attempted to restore conservative order after Napoleon's defeat.",
-      "Liberalism and nationalism became important forces in nineteenth-century Europe.",
-      "Germany was unified under Prussian leadership with Otto von Bismarck playing a central role.",
-      "Italy was unified through the efforts of figures such as Mazzini, Cavour and Garibaldi.",
-      "The Balkans became a centre of nationalist tensions and rivalry among European powers.",
-      "Nationalism often combined political unity with cultural symbols and shared identity.",
-      "The chapter links nationalism with both nation-building and political conflict."
-    ]
-  },
-
-  {
-    subject:"SST", group:"History", title:"Nationalism in India",
-    points:[
-      "The First World War created economic and political difficulties in India.",
-      "The Rowlatt Act allowed detention without trial and was strongly opposed.",
-      "The Jallianwala Bagh massacre became a major turning point in the national movement.",
-      "Gandhiji launched the Non-Cooperation Movement in 1920.",
-      "The Non-Cooperation Movement encouraged boycott of foreign goods and institutions.",
-      "The Civil Disobedience Movement began with the Salt March and challenged colonial laws.",
-      "Different social groups joined nationalist movements with their own expectations and interests.",
-      "Nationalist symbols, folklore, songs, history and images helped create a sense of collective identity.",
-      "The movement faced limitations because different communities and groups sometimes had conflicting interests.",
-      "The chapter highlights the development of mass nationalism and anti-colonial resistance."
-    ]
-  },
-
-  {
-    subject:"SST", group:"History", title:"The Making of a Global World",
-    points:[
-      "Globalisation has historical roots in trade, migration, investment and cultural exchange.",
-      "The nineteenth century saw increasing movement of goods, capital and people.",
-      "Food imports and migration changed economies and societies around the world.",
-      "Technology such as railways and steamships reduced travel time and transport costs.",
-      "Colonialism connected economies but often benefited imperial powers at the expense of colonies.",
-      "Indentured labourers migrated to plantations and other parts of the world.",
-      "The First World War disrupted the global economy.",
-      "The Great Depression caused falling prices, unemployment and reduced international trade.",
-      "The Second World War was followed by new international economic arrangements.",
-      "The chapter explains how global economic connections have repeatedly changed over time."
-    ]
-  },
-
-  {
-    subject:"SST", group:"History", title:"The Age of Industrialisation",
-    points:[
-      "Before factories became dominant, production was often organised through proto-industrial systems.",
-      "Merchants supplied raw materials to rural households for production.",
-      "Industrialisation began strongly in Britain during the eighteenth century.",
-      "Factories increased the scale and speed of production.",
-      "Machines did not completely eliminate hand production because some goods required skilled labour.",
-      "Industrial workers often faced long working hours and difficult conditions.",
-      "Indian textile producers faced severe competition from British machine-made goods.",
-      "Indian weavers suffered from declining demand and colonial trade policies.",
-      "Industrialisation in India developed alongside older forms of hand production.",
-      "Advertisements and product labels were increasingly used to create consumer demand."
-    ]
-  },
-
-  {
-    subject:"SST", group:"History", title:"Print Culture and the Modern World",
-    points:[
-      "Printing technology transformed the spread and availability of written information.",
-      "Johann Gutenberg developed a major early printing press in Europe.",
-      "Print made books cheaper and allowed a wider reading public to develop.",
-      "Religious debates and reform movements were strongly influenced by printed material.",
-      "Print culture contributed to the spread of new ideas and criticism of established authority.",
-      "Newspapers and journals became important tools for political discussion.",
-      "In colonial India, print helped spread social and religious reform ideas.",
-      "Colonial authorities also used censorship to control critical publications.",
-      "Print encouraged debates about caste, religion, women's education and social reform.",
-      "The chapter shows how print became closely connected with modern public opinion."
-    ]
-  },
-
-  // =========================
-  // SST — GEOGRAPHY
-  // =========================
-
-  {
-    subject:"SST", group:"Geography", title:"Resources and Development",
-    points:[
-      "A resource is anything available in the environment that can satisfy human needs when it is technologically accessible and economically feasible.",
-      "Resources can be classified by origin, exhaustibility, ownership and development status.",
-      "Resource planning is necessary because resources are unevenly distributed.",
-      "Sustainable development aims to use resources without damaging future availability.",
-      "Land is an important natural resource supporting agriculture, settlements and industries.",
-      "Land degradation can result from deforestation, overgrazing, mining and improper irrigation.",
-      "Soil is a renewable resource but takes a long time to form.",
-      "Major Indian soil types include alluvial, black, red and yellow, laterite and arid soils.",
-      "Soil erosion can be controlled through contour ploughing, terrace farming, strip cropping and afforestation.",
-      "Conservation of land and soil is essential for sustainable agriculture."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Geography", title:"Forest and Wildlife Resources",
-    points:[
-      "Biodiversity refers to the variety of living organisms in a region.",
-      "Forests provide ecological, economic and social benefits.",
-      "India has a wide variety of flora and fauna because of its diverse physical conditions.",
-      "Species may be classified as normal, endangered, vulnerable, rare, endemic or extinct.",
-      "Habitat destruction, hunting, pollution and overexploitation threaten biodiversity.",
-      "Protected areas such as national parks and wildlife sanctuaries help conserve species.",
-      "Project Tiger is an important conservation programme.",
-      "Local communities can contribute significantly to forest conservation.",
-      "The Chipko Movement is associated with community resistance to tree cutting.",
-      "Conservation requires balancing ecological protection with the livelihood needs of communities."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Geography", title:"Water Resources",
-    points:[
-      "Freshwater is essential for drinking, agriculture, industries and domestic activities.",
-      "Water scarcity can result from population growth, intensive irrigation, industrialisation and unequal rainfall.",
-      "Multipurpose river projects provide irrigation, electricity, flood control and water supply.",
-      "Large dams can also cause displacement, ecological changes and conflicts over water use.",
-      "Rainwater harvesting is an important method of conserving water.",
-      "Traditional water-harvesting systems vary across different regions of India.",
-      "Groundwater is an important source of irrigation and drinking water.",
-      "Over-extraction of groundwater can lower the water table.",
-      "Water conservation requires efficient use, recycling and protection of water sources.",
-      "Sustainable water management is necessary because usable freshwater is limited."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Geography", title:"Agriculture",
-    points:[
-      "Agriculture is an important economic activity and source of livelihood in India.",
-      "Major farming types include primitive subsistence farming, intensive subsistence farming and commercial farming.",
-      "Rice, wheat, millets, pulses, sugarcane, tea, coffee, cotton, jute and oilseeds are major crops.",
-      "Rice requires high temperature and sufficient rainfall or irrigation.",
-      "Wheat grows mainly in areas with cool growing seasons and moderate rainfall.",
-      "Commercial crops such as cotton, sugarcane, tea and coffee have significant market value.",
-      "India has developed irrigation to reduce dependence on monsoon rainfall.",
-      "Technological changes have increased agricultural productivity but can also create environmental problems.",
-      "Globalisation has increased opportunities and challenges for Indian farmers.",
-      "Diversification and sustainable farming practices can improve long-term agricultural resilience."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Geography", title:"Minerals and Energy Resources",
-    points:[
-      "Minerals are naturally occurring substances with a definite chemical composition and internal structure.",
-      "Minerals can occur in veins, lodes, layers, alluvial deposits and other geological formations.",
-      "Ferrous minerals contain iron and are important for the iron and steel industry.",
-      "Non-ferrous minerals include copper, bauxite, lead, zinc and others.",
-      "Conventional energy sources include coal, petroleum, natural gas and electricity from conventional systems.",
-      "Coal is an important fossil fuel and source of thermal power.",
-      "Petroleum is a major source of fuel and an important raw material for industries.",
-      "Renewable energy sources include solar, wind, tidal, biogas and geothermal energy.",
-      "Mineral resources are finite and require careful conservation.",
-      "Greater use of renewable energy can reduce dependence on fossil fuels."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Geography", title:"Manufacturing Industries",
-    points:[
-      "Manufacturing changes raw materials into products with greater utility and value.",
-      "Manufacturing creates employment and supports economic development.",
-      "Industries may be classified by source of raw materials, ownership, size and weight of inputs and outputs.",
-      "The iron and steel industry is a basic industry because many other industries depend on it.",
-      "Cotton textile industries provide employment and have historical importance in India.",
-      "Jute industries are concentrated mainly around the Hugli basin.",
-      "Sugar industries are important agro-based industries.",
-      "Industrial pollution can affect air, water, land and noise levels.",
-      "Industries can reduce pollution through cleaner technologies, waste treatment and efficient resource use.",
-      "Industrial development must balance economic growth with environmental protection."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Geography", title:"Lifelines of National Economy",
-    points:[
-      "Transport and communication are essential for the movement of people, goods and information.",
-      "Roadways are flexible and useful for short and medium-distance transportation.",
-      "Railways are important for carrying passengers and bulk goods over long distances.",
-      "Pipelines transport petroleum, natural gas and other materials efficiently.",
-      "Waterways are relatively economical for transporting heavy and bulky goods.",
-      "Airways provide rapid transportation and are especially useful over long distances.",
-      "Communication networks include telecommunications, newspapers, radio, television and digital services.",
-      "International trade connects India with global markets.",
-      "Tourism contributes to employment, foreign exchange and cultural exchange.",
-      "Transport and communication together support the integration of the national economy."
-    ]
-  },
-
-  // =========================
-  // SST — CIVICS
-  // =========================
-
-  {
-    subject:"SST", group:"Civics", title:"Power Sharing",
-    points:[
-      "Power sharing means distributing power among different organs, levels or groups in society.",
-      "It reduces the possibility of conflict between social groups.",
-      "Belgium adopted arrangements to share power among different linguistic communities.",
-      "Sri Lanka followed majoritarian policies that created tensions with Tamil communities.",
-      "Horizontal power sharing occurs among legislature, executive and judiciary.",
-      "Vertical power sharing occurs among different levels of government.",
-      "Power can also be shared among social groups, pressure groups and political parties.",
-      "Power sharing is desirable because it reduces conflict and promotes political stability.",
-      "Democratic governments are strengthened when different groups participate in decision-making.",
-      "The chapter demonstrates that sharing power is an important principle of democracy."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Civics", title:"Federalism",
-    points:[
-      "Federalism is a system in which power is constitutionally divided between different levels of government.",
-      "A federal system usually has at least two levels of government.",
-      "The Constitution clearly defines the powers of different levels.",
-      "In India, powers are divided through the Union List, State List and Concurrent List.",
-      "Some subjects are handled by the Union government, some by states and some jointly.",
-      "India has a third level of government through local self-government.",
-      "Linguistic reorganisation of states helped strengthen Indian federalism.",
-      "Decentralisation transfers power to local governments.",
-      "Panchayats and municipalities are important institutions of local democracy.",
-      "Successful federalism requires cooperation, respect for constitutional powers and democratic participation."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Civics", title:"Gender, Religion and Caste",
-    points:[
-      "Gender division often results from social expectations and unequal roles rather than biological differences alone.",
-      "Women have historically faced unequal access to education, employment and political participation.",
-      "The feminist movement has challenged gender inequality.",
-      "Communalism occurs when religion is used to divide people or influence politics in a way that creates conflict.",
-      "India's Constitution guarantees freedom of religion and equality before law.",
-      "Caste inequalities have influenced social and economic opportunities.",
-      "Caste can influence political mobilisation and electoral behaviour.",
-      "Political participation can help disadvantaged groups demand equality and representation.",
-      "Democracy should reduce social inequalities rather than reinforce discrimination.",
-      "Gender, religion and caste can affect politics, but their political effects depend on social and democratic conditions."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Civics", title:"Political Parties",
-    points:[
-      "A political party is a group of people who come together to contest elections and hold political power.",
-      "Political parties formulate policies and programmes.",
-      "They nominate candidates and contest elections.",
-      "Parties form and run governments when they win enough support.",
-      "Opposition parties monitor and criticise the government.",
-      "Political parties shape public opinion and connect citizens with government.",
-      "Major challenges include lack of internal democracy, dynastic succession, money and muscle power and limited meaningful choice.",
-      "Political parties are necessary for representative democracy to function effectively.",
-      "India has national and state political parties.",
-      "Reforms can improve transparency, internal democracy and accountability within parties."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Civics", title:"Outcomes of Democracy",
-    points:[
-      "Democracy provides a government that is accountable to citizens.",
-      "Democratic decision-making can improve the quality of decisions by allowing discussion and consultation.",
-      "Democracy provides peaceful methods for resolving differences and conflicts.",
-      "Democratic governments are expected to be responsive to people's needs.",
-      "Transparency allows citizens to examine how decisions are made.",
-      "Democracy does not automatically guarantee rapid economic development.",
-      "Economic inequality and unequal distribution of wealth can continue under democracy.",
-      "Democracy promotes dignity and equality of citizens.",
-      "It provides mechanisms for correcting mistakes through elections and public participation.",
-      "The success of democracy should be judged by accountability, responsiveness, dignity, equality and participation."
-    ]
-  },
-
-  // =========================
-  // SST — ECONOMICS
-  // =========================
-
-  {
-    subject:"SST", group:"Economics", title:"Development",
-    points:[
-      "Different people can have different ideas about what development means.",
-      "Income is an important measure of development but is not the only factor.",
-      "People also consider equality, security, freedom, health and education.",
-      "Average income is commonly used to compare countries or regions.",
-      "Per capita income is calculated by dividing total income by total population.",
-      "Public facilities such as schools, hospitals and clean water influence quality of life.",
-      "Human development considers factors beyond income.",
-      "Sustainable development requires meeting present needs without compromising future generations.",
-      "Different development goals can sometimes conflict with one another.",
-      "Development should be evaluated using economic, social and environmental indicators together."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Economics", title:"Sectors of the Indian Economy",
-    points:[
-      "The primary sector directly uses natural resources and includes activities such as agriculture and fishing.",
-      "The secondary sector transforms raw materials into manufactured goods.",
-      "The tertiary sector provides services such as transport, banking, education and healthcare.",
-      "The organised sector generally follows formal rules and provides greater job security.",
-      "The unorganised sector often has less job security and fewer formal benefits.",
-      "Public sector enterprises are owned or controlled by the government.",
-      "Private sector enterprises are generally owned by individuals or companies.",
-      "Disguised unemployment occurs when more people are working than actually required for the level of output.",
-      "The tertiary sector has become increasingly important in the Indian economy.",
-      "Government programmes can create employment and provide essential public services."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Economics", title:"Money and Credit",
-    points:[
-      "Money acts as a medium of exchange and removes the difficulty of double coincidence of wants.",
-      "Modern forms of money include currency and deposits in banks.",
-      "Banks accept deposits and provide loans to borrowers.",
-      "People can use bank deposits for payments through cheques and other methods.",
-      "Credit can help people invest, start businesses and meet financial needs.",
-      "Formal sources of credit include banks and cooperatives.",
-      "Informal sources include moneylenders, traders, employers, relatives and friends.",
-      "Formal credit is generally regulated and often carries lower interest rates than informal credit.",
-      "Collateral is an asset that a borrower may have to pledge as security for a loan.",
-      "Responsible access to affordable credit can support economic development."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Economics", title:"Globalisation and the Indian Economy",
-    points:[
-      "Globalisation refers to the increasing integration of production and markets across countries.",
-      "Multinational corporations operate or invest in more than one country.",
-      "MNCs may organise production across different countries according to cost, skills and market conditions.",
-      "Foreign investment can bring capital, technology and production opportunities.",
-      "Liberalisation reduced many restrictions on imports and foreign investment in India.",
-      "Globalisation has increased competition among producers.",
-      "Consumers may gain access to a wider variety of goods and services.",
-      "Small producers can face difficulties when competing with large international companies.",
-      "The World Trade Organization establishes rules for international trade.",
-      "The effects of globalisation are uneven and depend on the ability of people and businesses to participate in markets."
-    ]
-  },
-
-  {
-    subject:"SST", group:"Economics", title:"Consumer Rights",
-    points:[
-      "Consumers need protection because sellers may sometimes provide unsafe, poor-quality or misleading products and services.",
-      "The right to safety protects consumers against hazardous goods and services.",
-      "The right to be informed gives consumers access to information about products and services.",
-      "The right to choose allows consumers access to a variety of products at competitive prices.",
-      "The right to seek redressal allows consumers to demand compensation or correction of grievances.",
-      "Consumer awareness helps people make informed purchasing decisions.",
-      "Quality marks such as ISI, Hallmark and Agmark can provide useful information about standards.",
-      "Bills, receipts and product information are important evidence when making complaints.",
-      "Consumer organisations and legal mechanisms help protect consumer interests.",
-      "Responsible consumers should check labels, expiry dates, prices and relevant quality information."
-    ]
-  }
-
-  // ======================================================
-// STUDYOS APP
-// ======================================================
-
-const $ = id => document.getElementById(id);
-
-const gate = $("gate");
-const app = $("app");
-const codeInput = $("code");
-const enterBtn = $("enter");
-const err = $("err");
-
-const homeBtn = $("home");
-const themeBtn = $("theme");
-const lockBtn = $("lock");
-
-const subjects = $("subjects");
-const library = $("library");
-const results = $("results");
-
-const backBtn = $("back");
-const libEyebrow = $("libEyebrow");
-const libTitle = $("libTitle");
-const filters = $("filters");
-const grid = $("grid");
-
-const searchInput = $("search");
-const resultGrid = $("resultGrid");
-const resultCount = $("resultCount");
-const total = $("total");
-
-const modal = $("modal");
-const shade = $("shade");
-const closeBtn = $("close");
-const doneBtn = $("done");
-
-const mgroup = $("mgroup");
-const mtitle = $("mtitle");
-const pointsBox = $("points");
-
-let currentSubject = null;
-let currentFilter = "All";
-
-
-// ===============================
-// STUDYOS ACCESS GATE
-// ===============================
+/* =========================================================
+   STUDYOS — GRADE 10 CBSE
+   APP.JS — PART 1/3
+   ========================================================= */
+
+
+/* =========================================================
+   ACCESS SYSTEM
+   ========================================================= */
 
 const ACCESS_CODE = "STUDYOS10";
 
@@ -1195,23 +17,7 @@ const enterBtn = document.getElementById("enter");
 const errorMsg = document.getElementById("err");
 const lockBtn = document.getElementById("lock");
 
-// Check if already unlocked
-if (sessionStorage.getItem("studyos_unlocked") === "true") {
-  gate.classList.add("hidden");
-  app.classList.remove("hidden");
-}
-
-// Enter button
-enterBtn.addEventListener("click", unlock);
-
-// Press Enter inside the code box
-codeInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    unlock();
-  }
-});
-
-function unlock() {
+function unlockStudyOS() {
   const enteredCode = codeInput.value.trim();
 
   if (enteredCode === ACCESS_CODE) {
@@ -1229,8 +35,7 @@ function unlock() {
   }
 }
 
-// Lock button
-lockBtn.addEventListener("click", () => {
+function lockStudyOS() {
   sessionStorage.removeItem("studyos_unlocked");
 
   app.classList.add("hidden");
@@ -1239,90 +44,1770 @@ lockBtn.addEventListener("click", () => {
   codeInput.value = "";
   errorMsg.textContent = "";
   codeInput.focus();
+}
+
+function checkAccess() {
+  const unlocked =
+    sessionStorage.getItem("studyos_unlocked") === "true";
+
+  if (unlocked) {
+    gate.classList.add("hidden");
+    app.classList.remove("hidden");
+  } else {
+    gate.classList.remove("hidden");
+    app.classList.add("hidden");
+  }
+}
+
+enterBtn.addEventListener("click", unlockStudyOS);
+
+codeInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    unlockStudyOS();
+  }
 });
 
+lockBtn.addEventListener("click", lockStudyOS);
 
-// ======================================================
-// COUNTS
-// ======================================================
+checkAccess();
 
-function updateCounts() {
-  if (total) {
-    total.textContent = `${DATA.length} chapters`;
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const homeBtn = document.getElementById("home");
+const themeBtn = document.getElementById("theme");
+
+const subjectsSection = document.getElementById("subjects");
+const librarySection = document.getElementById("library");
+const resultsSection = document.getElementById("results");
+
+const backBtn = document.getElementById("back");
+
+const libEyebrow = document.getElementById("libEyebrow");
+const libTitle = document.getElementById("libTitle");
+
+const filters = document.getElementById("filters");
+const grid = document.getElementById("grid");
+
+const searchInput = document.getElementById("search");
+const resultGrid = document.getElementById("resultGrid");
+const resultCount = document.getElementById("resultCount");
+
+const total = document.getElementById("total");
+
+const modal = document.getElementById("modal");
+const shade = document.getElementById("shade");
+const closeBtn = document.getElementById("close");
+const doneBtn = document.getElementById("done");
+
+const modalGroup = document.getElementById("mgroup");
+const modalTitle = document.getElementById("mtitle");
+const pointsContainer = document.getElementById("points");
+
+
+/* =========================================================
+   CHAPTER DATABASE
+   SCIENCE — PHYSICS
+   ========================================================= */
+
+const DATA = [
+
+  {
+    subject: "Science",
+    group: "Physics",
+    title: "Light – Reflection and Refraction",
+    points: [
+      "Reflection is the bouncing back of light from a surface.",
+      "The angle of incidence is equal to the angle of reflection.",
+      "For spherical mirrors, the principal axis passes through the pole and centre of curvature.",
+      "Concave mirrors can form real or virtual images depending on the position of the object.",
+      "A convex mirror always forms a virtual, erect and diminished image.",
+      "Mirror formula: 1/f = 1/v + 1/u.",
+      "Magnification for mirrors: m = −v/u.",
+      "Refraction is the bending of light when it passes from one transparent medium to another.",
+      "Refractive index indicates how much a medium slows down light.",
+      "Convex lenses can form real or virtual images depending on object position.",
+      "A concave lens generally forms a virtual, erect and diminished image.",
+      "Lens formula: 1/f = 1/v − 1/u.",
+      "Magnification for lenses: m = v/u.",
+      "Power of lens: P = 1/f, where f is measured in metres.",
+      "SI unit of lens power is dioptre (D)."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Physics",
+    title: "The Human Eye and the Colourful World",
+    points: [
+      "The human eye acts like an optical instrument that forms an image on the retina.",
+      "The eye lens changes its focal length to focus objects at different distances.",
+      "This ability is called accommodation.",
+      "The near point of a normal human eye is about 25 cm.",
+      "The far point of a normal human eye is infinity.",
+      "Myopia is short-sightedness and is corrected using a concave lens.",
+      "Hypermetropia is long-sightedness and is corrected using a convex lens.",
+      "Presbyopia is associated with the reduced power of accommodation with age.",
+      "Cataract can cause the eye lens to become cloudy and may affect vision.",
+      "Dispersion is the splitting of white light into its constituent colours.",
+      "A rainbow is produced through refraction, dispersion and internal reflection of sunlight by water droplets.",
+      "Scattering of light causes the blue appearance of the sky.",
+      "The Sun can appear reddish during sunrise and sunset because shorter wavelengths are scattered more strongly."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Physics",
+    title: "Electricity",
+    points: [
+      "Electric current is the rate of flow of electric charge.",
+      "I = Q/t.",
+      "Potential difference is work done per unit charge: V = W/Q.",
+      "Ohm's law states that V is directly proportional to I at constant temperature.",
+      "Ohm's law: V = IR.",
+      "Resistance opposes the flow of electric current.",
+      "Resistance depends on length, area of cross-section, material and temperature.",
+      "R = ρl/A.",
+      "The SI unit of resistance is ohm (Ω).",
+      "In a series circuit, the same current flows through each resistor.",
+      "For resistors in series: R = R₁ + R₂ + R₃.",
+      "In a parallel circuit, the potential difference across each branch is the same.",
+      "For parallel resistors: 1/R = 1/R₁ + 1/R₂ + 1/R₃.",
+      "Electric power is the rate at which electrical energy is consumed.",
+      "P = VI = I²R = V²/R.",
+      "Electrical energy is commonly measured commercially in kilowatt-hour (kWh).",
+      "Heating effect of current: H = I²Rt."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Physics",
+    title: "Magnetic Effects of Electric Current",
+    points: [
+      "A current-carrying conductor produces a magnetic field around it.",
+      "The magnetic field around a straight conductor consists of concentric circles.",
+      "The right-hand thumb rule gives the direction of the magnetic field around a straight conductor.",
+      "A solenoid produces a magnetic field similar to that of a bar magnet.",
+      "Increasing the current or number of turns can strengthen a solenoid's magnetic field.",
+      "A current-carrying conductor placed in a magnetic field experiences a force.",
+      "Fleming's left-hand rule gives the direction of force on a current-carrying conductor.",
+      "Electromagnetic induction is the production of electric current due to a changing magnetic field.",
+      "Fleming's right-hand rule helps determine the direction of induced current.",
+      "An electric motor converts electrical energy into mechanical energy.",
+      "An electric generator converts mechanical energy into electrical energy.",
+      "Domestic electric circuits use live, neutral and earth wires.",
+      "A fuse protects circuits from excessive current."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Physics",
+    title: "Sources of Energy",
+    points: [
+      "A good source of energy should provide a large amount of energy per unit mass.",
+      "It should be convenient to store and transport.",
+      "It should be economical and preferably cause less environmental pollution.",
+      "Renewable sources can be naturally replenished.",
+      "Solar, wind, hydroelectric, biomass and geothermal energy are renewable sources.",
+      "Coal, petroleum and natural gas are major non-renewable sources.",
+      "Solar cells convert solar energy directly into electrical energy.",
+      "Wind energy is produced using the kinetic energy of moving air.",
+      "Hydroelectric power uses the potential energy of stored water.",
+      "Biogas is produced from the decomposition of organic matter.",
+      "Nuclear energy can release a very large amount of energy.",
+      "Nuclear power also creates radioactive waste and requires careful safety measures."
+    ]
+  },
+
+
+  /* =======================================================
+     SCIENCE — CHEMISTRY
+     ======================================================= */
+
+  {
+    subject: "Science",
+    group: "Chemistry",
+    title: "Chemical Reactions and Equations",
+    points: [
+      "A chemical reaction involves the formation of one or more new substances.",
+      "Signs of a chemical reaction may include change in colour, temperature, state or formation of gas or precipitate.",
+      "Chemical equations represent chemical reactions using symbols and formulae.",
+      "A chemical equation must be balanced because atoms are neither created nor destroyed.",
+      "Combination reaction: two or more substances combine to form a single product.",
+      "Decomposition reaction: one compound breaks into simpler substances.",
+      "Displacement reaction: a more reactive element displaces a less reactive element.",
+      "Double displacement reactions involve exchange of ions between compounds.",
+      "A precipitate is an insoluble solid formed during some reactions.",
+      "Oxidation can involve addition of oxygen or removal of hydrogen.",
+      "Reduction can involve removal of oxygen or addition of hydrogen.",
+      "Oxidation and reduction occur together in redox reactions.",
+      "Corrosion is the gradual deterioration of metals due to environmental reactions.",
+      "Rancidity is oxidation of fats and oils that causes unpleasant smell and taste.",
+      "Antioxidants and proper packaging can help prevent rancidity."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Chemistry",
+    title: "Acids, Bases and Salts",
+    points: [
+      "Acids produce H⁺ ions in aqueous solution.",
+      "Bases produce OH⁻ ions in aqueous solution.",
+      "Acids generally have a sour taste, while bases are generally bitter and soapy.",
+      "The pH scale indicates how acidic or basic a solution is.",
+      "pH values below 7 indicate acidic solutions.",
+      "pH 7 represents a neutral solution at ordinary conditions.",
+      "pH values above 7 indicate basic solutions.",
+      "Acid + base → salt + water is called a neutralisation reaction.",
+      "Acids react with many metals to produce salt and hydrogen gas.",
+      "Acids react with carbonates and hydrogencarbonates to produce carbon dioxide.",
+      "Baking soda is sodium hydrogencarbonate: NaHCO₃.",
+      "Washing soda is sodium carbonate decahydrate: Na₂CO₃·10H₂O.",
+      "Bleaching powder is used for disinfecting drinking water and bleaching.",
+      "Plaster of Paris is calcium sulphate hemihydrate.",
+      "pH is important in digestion, tooth decay, soil treatment and many biological processes."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Chemistry",
+    title: "Metals and Non-metals",
+    points: [
+      "Metals are generally lustrous, malleable, ductile and good conductors.",
+      "Non-metals generally show different physical properties from metals.",
+      "Metals tend to lose electrons and form positive ions.",
+      "Non-metals generally gain or share electrons.",
+      "The reactivity series arranges metals according to their reactivity.",
+      "A more reactive metal can displace a less reactive metal from its salt solution.",
+      "Ionic compounds are formed through transfer of electrons.",
+      "Ionic compounds generally have high melting and boiling points.",
+      "Ionic compounds conduct electricity in molten or aqueous states because ions can move.",
+      "Highly reactive metals are generally extracted using electrolysis.",
+      "Less reactive metals can often be extracted by reduction of their oxides.",
+      "Corrosion is the deterioration of a metal due to reactions with its environment.",
+      "Alloys are mixtures of metals or a metal with another element.",
+      "Alloys are often designed to improve strength, hardness or resistance to corrosion."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Chemistry",
+    title: "Carbon and its Compounds",
+    points: [
+      "Carbon has four valence electrons and forms four covalent bonds.",
+      "Tetravalency is the ability of carbon to form four bonds.",
+      "Catenation is the ability of carbon to form bonds with other carbon atoms.",
+      "Saturated hydrocarbons contain only single carbon-carbon bonds.",
+      "Unsaturated hydrocarbons contain double or triple bonds.",
+      "A homologous series contains compounds with the same functional group and similar chemical properties.",
+      "Successive members of a homologous series differ by –CH₂–.",
+      "Functional groups determine many characteristic reactions of organic compounds.",
+      "Important functional groups include alcohol, aldehyde, ketone and carboxylic acid.",
+      "Ethanol is an alcohol and ethanoic acid is a carboxylic acid.",
+      "Combustion of carbon compounds generally produces carbon dioxide, water and energy when complete.",
+      "Addition reactions are characteristic of many unsaturated compounds.",
+      "Substitution reactions are common in saturated hydrocarbons.",
+      "Esterification occurs between an alcohol and a carboxylic acid to form an ester.",
+      "Soap molecules have a hydrophilic end and a hydrophobic hydrocarbon tail.",
+      "Soap cleans by forming micelles around oily dirt."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Chemistry",
+    title: "Periodic Classification of Elements",
+    points: [
+      "The modern periodic table is based on atomic number.",
+      "Modern periodic law states that properties of elements are periodic functions of their atomic numbers.",
+      "The modern periodic table contains 18 groups and 7 periods.",
+      "Elements in the same group generally have similar valence-shell electronic configurations.",
+      "Valence electrons strongly influence chemical properties.",
+      "Atomic size generally decreases from left to right across a period.",
+      "Atomic size generally increases down a group.",
+      "Metallic character generally decreases from left to right across a period.",
+      "Metallic character generally increases down a group.",
+      "Elements in a period have the same number of electron shells.",
+      "Noble gases have stable outer electronic configurations and are generally unreactive.",
+      "The position of an element in the periodic table helps predict its properties.",
+      "Mendeleev's periodic table was an important step toward the modern periodic classification."
+    ]
+  },
+
+
+  /* =======================================================
+     SCIENCE — BIOLOGY
+     ======================================================= */
+
+  {
+    subject: "Science",
+    group: "Biology",
+    title: "Life Processes",
+    points: [
+      "Life processes are activities necessary for maintaining life.",
+      "Major life processes include nutrition, respiration, transportation and excretion.",
+      "Autotrophic organisms prepare their own food using inorganic substances.",
+      "Photosynthesis uses carbon dioxide, water, sunlight and chlorophyll to produce glucose and oxygen.",
+      "Stomata allow exchange of gases in leaves.",
+      "Human digestion involves ingestion, digestion, absorption, assimilation and egestion.",
+      "Aerobic respiration uses oxygen and generally releases more energy.",
+      "Anaerobic respiration occurs without oxygen and releases less energy.",
+      "In humans, the heart pumps blood through the circulatory system.",
+      "Arteries generally carry blood away from the heart, while veins generally carry blood toward the heart.",
+      "Xylem transports water and minerals in plants.",
+      "Phloem transports food from leaves to other parts of the plant.",
+      "Nephrons are the functional units of kidneys.",
+      "Kidneys filter blood and help regulate water and ion balance."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Biology",
+    title: "Control and Coordination",
+    points: [
+      "Control and coordination allow organisms to respond appropriately to changes.",
+      "The nervous system coordinates rapid responses using electrical impulses.",
+      "A neuron is the structural and functional unit of the nervous system.",
+      "A reflex action is a rapid, automatic response to a stimulus.",
+      "The spinal cord plays an important role in many reflex actions.",
+      "The brain is divided into major regions including forebrain, midbrain and hindbrain.",
+      "The forebrain is involved in thinking, memory and interpreting sensory information.",
+      "Plant hormones regulate growth and responses.",
+      "Auxin promotes cell growth and is involved in phototropic responses.",
+      "Gibberellins promote growth in plants.",
+      "Cytokinins promote cell division.",
+      "Abscisic acid can inhibit growth and helps plants respond to stress.",
+      "Adrenaline prepares the body for emergency situations.",
+      "Insulin helps regulate blood glucose levels.",
+      "Thyroxine plays an important role in regulating metabolism."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Biology",
+    title: "How do Organisms Reproduce?",
+    points: [
+      "Reproduction ensures continuity of a species.",
+      "Reproduction can be asexual or sexual.",
+      "Asexual reproduction generally involves a single parent and produces genetically similar offspring.",
+      "Fission, budding, fragmentation, regeneration and vegetative propagation are forms of asexual reproduction.",
+      "Sexual reproduction generally involves fusion of male and female gametes.",
+      "Sexual reproduction creates variation among offspring.",
+      "In flowering plants, pollination transfers pollen grains from anther to stigma.",
+      "Fertilisation results in the formation of a zygote.",
+      "The zygote develops into an embryo.",
+      "In humans, the male reproductive system produces sperm.",
+      "The female reproductive system produces ova and provides conditions for development of the embryo.",
+      "Fertilisation in humans normally occurs in the oviduct.",
+      "The embryo develops in the uterus.",
+      "Reproductive health includes hygiene, awareness and responsible healthcare."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Biology",
+    title: "Heredity and Evolution",
+    points: [
+      "Heredity is the transmission of characteristics from parents to offspring.",
+      "Genes are units of heredity located on chromosomes.",
+      "Mendel studied inheritance using pea plants.",
+      "Dominant traits can express themselves in the presence of a recessive allele.",
+      "A genotype describes the genetic constitution of an organism.",
+      "A phenotype describes observable characteristics.",
+      "Variations can arise through genetic processes and environmental influences.",
+      "Sex determination in humans involves XX chromosomes in females and XY chromosomes in males.",
+      "Fossils provide evidence about organisms that lived in the past.",
+      "Homologous organs have similar basic structures but may perform different functions.",
+      "Analogous organs perform similar functions but have different structural origins.",
+      "Evolution describes changes in populations over generations.",
+      "Natural selection can favour variations that improve survival and reproduction."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Biology",
+    title: "Our Environment",
+    points: [
+      "An ecosystem consists of biotic and abiotic components.",
+      "Producers make food and form the base of many food chains.",
+      "Consumers obtain energy by feeding on other organisms.",
+      "Decomposers break down dead organic matter and recycle nutrients.",
+      "A food chain represents the transfer of food and energy between organisms.",
+      "Only a small fraction of energy is transferred from one trophic level to the next.",
+      "Food webs consist of interconnected food chains.",
+      "Biological magnification is the increase in concentration of certain non-biodegradable substances at higher trophic levels.",
+      "Ozone in the upper atmosphere protects life by absorbing harmful ultraviolet radiation.",
+      "Ozone depletion increases exposure to harmful ultraviolet radiation.",
+      "Biodegradable substances can be broken down by microorganisms.",
+      "Non-biodegradable substances persist for long periods and can accumulate in ecosystems."
+    ]
+  },
+
+  {
+    subject: "Science",
+    group: "Biology",
+    title: "Sustainable Management of Natural Resources",
+    points: [
+      "Sustainable management means using resources while protecting their availability for the future.",
+      "The three Rs are reduce, reuse and recycle.",
+      "Forest conservation involves protecting biodiversity and using forest resources responsibly.",
+      "Local communities can play an important role in sustainable forest management.",
+      "Water harvesting can collect rainwater and help recharge groundwater.",
+      "Large dams can provide irrigation and electricity but may also create social and environmental impacts.",
+      "Coal and petroleum are exhaustible fossil fuels.",
+      "Judicious use of fossil fuels helps conserve limited resources.",
+      "Wildlife conservation protects biodiversity and ecological balance.",
+      "Sustainable development requires balancing environmental, social and economic needs."
+    ]
   }
 
-  const science = DATA.filter(x => x.subject === "Science").length;
-  const english = DATA.filter(x => x.subject === "English").length;
-  const sst = DATA.filter(x => x.subject === "SST").length;
+];
 
-  const floats = document.querySelectorAll(".float");
+/* =========================================================
+   STUDYOS — APP.JS
+   PART 2/3
+   ENGLISH + SOCIAL SCIENCE DATABASE
+   ========================================================= */
 
-  floats.forEach(item => {
-    const text = item.textContent.toUpperCase();
 
-    if (text.includes("SCIENCE")) {
-      item.innerHTML = `SCIENCE <b>${science}</b>`;
-    }
+/* =========================================================
+   ENGLISH — FIRST FLIGHT PROSE
+   ========================================================= */
 
-    if (text.includes("ENGLISH")) {
-      item.innerHTML = `ENGLISH <b>${english}</b>`;
-    }
+DATA.push(
 
-    if (text.includes("SST")) {
-      item.innerHTML = `SST <b>${sst}</b>`;
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "A Letter to God",
+  points: [
+    "Lencho is a poor farmer whose entire crop depends on the weather.",
+    "A hailstorm completely destroys Lencho's crop.",
+    "Lencho has complete faith in God and believes that God will help him.",
+    "He writes a letter to God asking for one hundred pesos to recover from the loss.",
+    "The postmaster is deeply moved by Lencho's faith.",
+    "The postmaster collects money from his employees and sends Lencho seventy pesos.",
+    "Lencho is surprised to receive less money than he requested.",
+    "Instead of doubting God, Lencho believes that the post office employees stole the remaining money.",
+    "The story creates irony because the people Lencho suspects are actually the people who helped him.",
+    "Major themes: faith, innocence, kindness, irony and human nature.",
+    "Lencho's faith is sincere but also somewhat unquestioning.",
+    "The postmaster represents human kindness and generosity."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "Nelson Mandela – Long Walk to Freedom",
+  points: [
+    "Nelson Mandela describes the historic inauguration of South Africa's first democratic government.",
+    "The ceremony took place on 10 May 1994 in Pretoria.",
+    "Mandela became the first Black President of South Africa.",
+    "He remembers the long struggle against apartheid and racial discrimination.",
+    "Mandela honours the people who sacrificed their lives for freedom.",
+    "He explains that courage is not the absence of fear but victory over fear.",
+    "Apartheid denied basic rights and freedom to the Black majority.",
+    "Mandela says that both the oppressed and the oppressor lose their humanity under an unjust system.",
+    "He believes that freedom is indivisible.",
+    "True freedom means freedom for everyone, not just for one group.",
+    "Major themes: freedom, courage, equality, sacrifice, dignity and patriotism.",
+    "Mandela's idea of freedom changes from personal freedom to collective freedom."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "Stories About Flying – His First Flight",
+  points: [
+    "The young seagull is afraid to fly even though his brothers and sister have already learned.",
+    "His parents repeatedly encourage him to overcome his fear.",
+    "The young bird remains alone on the ledge while his family flies.",
+    "Hunger finally becomes stronger than his fear.",
+    "His mother uses a piece of fish to tempt him into flying.",
+    "The seagull dives toward the food and discovers that his wings can support him.",
+    "He gradually gains confidence and enjoys flying.",
+    "The story shows that fear can be overcome through courage and experience.",
+    "The family provides encouragement while the seagull must finally take the step himself.",
+    "Major themes: fear, courage, confidence, independence and family support.",
+    "The first flight symbolises a person's journey from dependence to independence."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "Stories About Flying – The Black Aeroplane",
+  points: [
+    "The narrator is a pilot flying his old Dakota aeroplane toward England.",
+    "He sees dark storm clouds ahead but decides to fly through them.",
+    "Inside the storm, visibility becomes extremely poor.",
+    "His compass, radio and other instruments stop functioning.",
+    "The narrator becomes confused and worried because he cannot determine his direction.",
+    "A mysterious black aeroplane appears beside him.",
+    "The unknown pilot signals the narrator to follow him.",
+    "The narrator follows the black aeroplane and safely reaches an airport.",
+    "The control tower tells him that no other aeroplane was flying in the storm.",
+    "The ending leaves the identity and existence of the black aeroplane unexplained.",
+    "Major themes: mystery, fear, hope, uncertainty and supernatural possibility.",
+    "The unexplained ending creates ambiguity and encourages different interpretations."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "From the Diary of Anne Frank",
+  points: [
+    "Anne Frank receives a diary on her thirteenth birthday.",
+    "She names her diary Kitty and treats it as a close friend.",
+    "Anne feels that paper has more patience than people.",
+    "She writes about her family, school, classmates and teachers.",
+    "Anne feels lonely despite having people around her.",
+    "She believes that she has many things to share but lacks a true confidante.",
+    "Mr Keesing is Anne's mathematics teacher.",
+    "He repeatedly punishes Anne for talking too much in class.",
+    "Anne writes humorous essays explaining why she talks so much.",
+    "Her creative responses eventually make Mr Keesing change his attitude.",
+    "The chapter shows Anne's intelligence, honesty, humour and self-awareness.",
+    "Major themes: adolescence, loneliness, friendship, self-expression and observation."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "Glimpses of India – A Baker from Goa",
+  points: [
+    "The chapter describes the traditional importance of bread and bakers in Goa.",
+    "The Portuguese influence can still be seen in Goan bread-making traditions.",
+    "The village baker traditionally visited houses with bread and baked goods.",
+    "Bread was an important part of everyday life as well as special occasions.",
+    "Children were attracted to the sound and arrival of the baker.",
+    "The baker traditionally carried bread in a bamboo basket.",
+    "The baker's dress and tools reflect an older Goan tradition.",
+    "Bread was associated with marriages, festivals and other celebrations.",
+    "The chapter presents food as an important part of cultural identity.",
+    "Major themes: tradition, culture, memories, food and social life."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "Glimpses of India – Coorg",
+  points: [
+    "Coorg, also known as Kodagu, is located in Karnataka.",
+    "The region is famous for coffee plantations, forests and beautiful landscapes.",
+    "Coorg is described as a land of mist, greenery and natural beauty.",
+    "The people of Coorg are associated with bravery and a strong martial tradition.",
+    "The chapter mentions different theories about the ancestry of the Kodavus.",
+    "Coorg offers adventure activities such as river rafting and trekking.",
+    "The River Kaveri originates in the hills of Coorg.",
+    "The region is rich in wildlife and plant life.",
+    "Coffee plantations are an important feature of the local economy.",
+    "Major themes: geography, culture, adventure, nature and tourism."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "Glimpses of India – Tea from Assam",
+  points: [
+    "Rajvir and Pranjol travel by train through Assam.",
+    "Pranjol's father manages a tea plantation.",
+    "Rajvir is fascinated by the vast tea gardens of Assam.",
+    "Assam is one of the world's major tea-producing regions.",
+    "The chapter describes legends about the discovery of tea.",
+    "One legend connects tea with Chinese history and Buddhist traditions.",
+    "Another legend describes tea plants growing in Assam.",
+    "Tea cultivation involves planting, growing, plucking and processing tea leaves.",
+    "The landscape of Assam is closely associated with tea plantations.",
+    "Major themes: tea culture, geography, history, legends and nature."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "Mijbil the Otter",
+  points: [
+    "The narrator decides to keep an otter as a pet while staying in Iraq.",
+    "He obtains an otter named Mijbil.",
+    "Mijbil is curious, playful and intelligent.",
+    "Mijbil develops a strong interest in water.",
+    "The otter invents games and enjoys playing with different objects.",
+    "The narrator becomes deeply attached to Mijbil.",
+    "Travelling with Mijbil creates difficulties because airline rules do not easily accommodate animals.",
+    "Mijbil eventually becomes comfortable travelling with the narrator.",
+    "People often react with curiosity when they see Mijbil.",
+    "Major themes: companionship, animal behaviour, affection and human-animal relationships.",
+    "The narrator carefully observes Mijbil's habits and personality."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "Madam Rides the Bus",
+  points: [
+    "Valli is an eight-year-old girl who is fascinated by the bus travelling through her village.",
+    "She carefully observes passengers and learns about the bus journey.",
+    "Valli secretly plans her first bus ride.",
+    "She saves money by avoiding small pleasures and unnecessary purchases.",
+    "Valli boards the bus alone and confidently interacts with the conductor.",
+    "The conductor affectionately calls her Madam.",
+    "Valli enjoys observing the outside world during the journey.",
+    "She refuses the conductor's offer of a free drink because she has planned her money carefully.",
+    "On the return journey, Valli sees a dead cow that had earlier appeared lively.",
+    "The incident gives her a more serious understanding of death and life.",
+    "Major themes: curiosity, independence, observation, maturity and experience.",
+    "Valli's journey symbolises her growing independence."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "The Sermon at Benares",
+  points: [
+    "Kisa Gotami loses her only son and becomes overwhelmed by grief.",
+    "She refuses to accept that her son has died.",
+    "She goes from house to house asking for medicine to bring him back.",
+    "A wise man directs her to Gautama Buddha.",
+    "Buddha asks her to collect mustard seeds from a household that has never experienced death.",
+    "Kisa Gotami cannot find such a household.",
+    "She gradually understands that death is universal.",
+    "Buddha teaches that attachment and grief are natural but must be understood and accepted.",
+    "Human beings cannot escape mortality.",
+    "Acceptance of reality can help a person overcome excessive suffering.",
+    "Major themes: death, grief, acceptance, wisdom, detachment and universal suffering.",
+    "Kisa Gotami's transformation is the central development of the story."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Prose",
+  title: "The Proposal",
+  points: [
+    "The play is a humorous farce written by Anton Chekhov.",
+    "Lomov visits Chubukov's house intending to propose marriage to Natalya.",
+    "Instead of calmly discussing marriage, Lomov and Natalya begin arguing.",
+    "Their first major argument concerns ownership of Oxen Meadows.",
+    "They then quarrel over the superiority of their dogs.",
+    "Chubukov joins the arguments instead of helping settle them.",
+    "Lomov becomes physically distressed because of his nervous condition.",
+    "Natalya eventually learns that Lomov had come to propose marriage.",
+    "She immediately wants him brought back.",
+    "Even after the proposal is accepted, the arguments continue.",
+    "Major themes: marriage, greed, pride, property, social expectations and absurdity.",
+    "The exaggerated quarrels create comedy and irony."
+  ]
+},
+
+
+/* =========================================================
+   ENGLISH — FIRST FLIGHT POEMS
+   ========================================================= */
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "Dust of Snow",
+  points: [
+    "The poet describes a small moment involving a hemlock tree and a crow.",
+    "Snow falling from the tree unexpectedly changes the poet's mood.",
+    "The poet's negative mood becomes more positive.",
+    "The poem shows that even a simple natural event can transform one's thoughts.",
+    "The crow and hemlock tree traditionally carry negative associations, yet they create a positive effect.",
+    "Major themes: nature, hope, transformation and unexpected happiness.",
+    "The poem demonstrates the healing and refreshing influence of nature.",
+    "Important poetic device: symbolism."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "Fire and Ice",
+  points: [
+    "The poem considers two possible ways in which the world could end.",
+    "Fire represents desire, greed and uncontrolled passion.",
+    "Ice represents hatred, coldness and emotional destruction.",
+    "The poet believes that either extreme emotion could cause destruction.",
+    "The poem is short but presents a serious reflection on human nature.",
+    "Major themes: desire, hatred, destruction and human emotions.",
+    "Important poetic devices include symbolism, repetition and contrast.",
+    "Fire and ice create a strong contrast between two destructive forces."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "A Tiger in the Zoo",
+  points: [
+    "The poem contrasts a tiger's natural life with its life in captivity.",
+    "The tiger moves inside a cage instead of roaming freely.",
+    "Its physical strength becomes meaningless because it is imprisoned.",
+    "The tiger would naturally hunt and move through the jungle.",
+    "The poem criticises the confinement of wild animals.",
+    "Major themes: freedom, captivity, oppression and cruelty.",
+    "The tiger's anger remains controlled because of its imprisonment.",
+    "Important device: contrast between the cage and the natural environment."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "How to Tell Wild Animals",
+  points: [
+    "The poem humorously describes ways to identify dangerous wild animals.",
+    "The poet uses exaggerated situations to create comedy.",
+    "Different animals are identified through their physical characteristics and behaviour.",
+    "The poem uses a playful and conversational tone.",
+    "Rhyme and rhythm make the poem entertaining.",
+    "The poem deliberately presents dangerous situations in a humorous way.",
+    "Major themes: humour, animals, danger and observation.",
+    "Important devices include rhyme, repetition, irony and exaggeration."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "The Ball Poem",
+  points: [
+    "A young boy loses a ball that has emotional value to him.",
+    "The loss causes the boy to experience genuine sadness.",
+    "The poet does not simply replace the ball because the experience itself is important.",
+    "The boy begins to understand that losses are a part of life.",
+    "The experience teaches him responsibility and emotional maturity.",
+    "The ball symbolises possessions and the losses people experience.",
+    "Major themes: loss, maturity, responsibility and growing up.",
+    "The poem suggests that people must learn to cope with loss."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "Amanda!",
+  points: [
+    "Amanda is repeatedly instructed by an adult to behave properly.",
+    "The constant instructions make her mentally escape into imagination.",
+    "Amanda imagines herself as a mermaid, an orphan and Rapunzel.",
+    "Her fantasies represent her desire for freedom and independence.",
+    "The poem highlights the pressure children can experience from constant criticism.",
+    "Major themes: childhood, freedom, imagination, control and parental expectations.",
+    "The repeated commands create a contrast with Amanda's imaginative world.",
+    "Important device: repetition."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "The Trees",
+  points: [
+    "The poem presents trees as if they are trying to escape from an indoor space.",
+    "The trees symbolise nature seeking freedom.",
+    "The movement of the trees is presented through vivid imagery.",
+    "The poem creates a contrast between artificial confinement and natural freedom.",
+    "Nature appears powerful and determined to reclaim its rightful space.",
+    "Major themes: freedom, nature, confinement and human control.",
+    "The poem uses personification extensively.",
+    "The movement toward the forest symbolises liberation."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "Fog",
+  points: [
+    "The poet compares fog to a cat.",
+    "The fog arrives silently and mysteriously.",
+    "It seems to sit quietly over the city and harbour.",
+    "The fog eventually moves away without making a sound.",
+    "The cat comparison captures the quiet and unpredictable movement of fog.",
+    "Major themes: nature, mystery, silence and transience.",
+    "The main poetic device is metaphor.",
+    "The poem is extremely concise but creates a vivid visual image."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "The Tale of Custard the Dragon",
+  points: [
+    "Belinda lives with several pets, including a dragon named Custard.",
+    "The other animals constantly boast about their bravery.",
+    "Custard appears timid and repeatedly asks for a safe cage.",
+    "When a pirate enters the house, the supposedly brave animals become frightened.",
+    "Custard confronts the pirate and proves genuinely courageous.",
+    "The poem contrasts real courage with empty boasting.",
+    "Major themes: courage, humility, appearance versus reality and friendship.",
+    "The poem uses humour, rhyme, repetition and exaggeration.",
+    "Custard's actions prove that courage is demonstrated through behaviour rather than words."
+  ]
+},
+
+{
+  subject: "English",
+  group: "First Flight – Poems",
+  title: "For Anne Gregory",
+  points: [
+    "The poem discusses whether human love is based on physical beauty.",
+    "Anne Gregory's physical appearance attracts attention.",
+    "The speaker questions whether anyone could love her for her inner self.",
+    "The poem contrasts outward appearance with inner personality.",
+    "The final idea suggests that divine love is different from superficial human attraction.",
+    "Major themes: beauty, love, appearance, inner worth and spirituality.",
+    "The poem questions the reliability of human judgement based on appearance.",
+    "Important devices include dialogue, repetition and symbolism."
+  ]
+},
+
+
+/* =========================================================
+   ENGLISH — FOOTPRINTS WITHOUT FEET
+   ========================================================= */
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "A Triumph of Surgery",
+  points: [
+    "Tricki is a small dog owned by Mrs Pumphrey.",
+    "Mrs Pumphrey loves Tricki excessively and constantly feeds him.",
+    "Overfeeding and lack of exercise make Tricki unhealthy.",
+    "Dr Herriot advises Mrs Pumphrey to control his diet and increase his exercise.",
+    "Tricki is taken to the surgery for proper care.",
+    "At the surgery, Tricki receives controlled food and regular activity.",
+    "He quickly becomes healthier without requiring complicated medical treatment.",
+    "Mrs Pumphrey believes the veterinary treatment was a great medical triumph.",
+    "The actual solution was discipline, controlled diet and exercise.",
+    "Major themes: responsible pet care, discipline, affection and overindulgence.",
+    "The title is humorous because the 'surgery' succeeds mainly through simple lifestyle changes."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "The Thief's Story",
+  points: [
+    "Hari Singh is a young thief who frequently changes his name.",
+    "He meets Anil and decides to work for him.",
+    "Anil is simple, trusting and willing to teach Hari how to read and write.",
+    "Hari steals money from Anil after gaining his trust.",
+    "While leaving, Hari begins thinking about the education and trust he would lose.",
+    "He returns the stolen money.",
+    "Anil understands what has happened but chooses not to punish Hari.",
+    "Anil's kindness gives Hari an opportunity to reform.",
+    "Education becomes a major force for positive change.",
+    "Major themes: trust, education, forgiveness, reform and human goodness.",
+    "Hari's return marks an important turning point in his character."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "The Midnight Visitor",
+  points: [
+    "Ausable is a secret agent who does not fit the stereotypical image of a spy.",
+    "Fowler expects a dramatic and physically impressive secret agent.",
+    "Ausable remains calm and intelligent despite danger.",
+    "Max enters Ausable's room with a weapon and demands an important report.",
+    "Ausable invents a story about a balcony outside the window.",
+    "He also claims that the police are about to arrive.",
+    "Max becomes convinced by Ausable's believable deception.",
+    "Max is ultimately outsmarted by Ausable.",
+    "The story shows that intelligence can be more useful than physical strength.",
+    "Major themes: wit, presence of mind, deception and appearance versus reality.",
+    "Ausable's calm behaviour demonstrates effective problem-solving."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "A Question of Trust",
+  points: [
+    "Horace Danby is a respectable-looking man who secretly commits thefts.",
+    "He plans to steal valuable jewels from a house.",
+    "He enters the house believing it to be empty.",
+    "A woman appears and claims to be the owner.",
+    "She tricks Horace into opening the safe for her.",
+    "Horace removes the fingerprints issue by wearing gloves but is still deceived.",
+    "The woman is actually another thief.",
+    "Horace later becomes a suspect because the police find evidence connecting him to the crime.",
+    "The story uses irony because a thief who thinks he is clever is himself deceived.",
+    "Major themes: deception, crime, trust, appearance and irony.",
+    "Horace's assumptions about the woman ultimately cause his downfall."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "Footprints Without Feet",
+  points: [
+    "Griffin is a scientist who discovers how to make the human body invisible.",
+    "His scientific discovery demonstrates intelligence but not responsible behaviour.",
+    "Griffin misuses invisibility for personal benefit.",
+    "He steals clothes and money and causes fear wherever he goes.",
+    "He enters places secretly because people cannot see him.",
+    "Griffin's behaviour demonstrates the dangers of scientific knowledge without ethics.",
+    "The story raises questions about responsibility and misuse of science.",
+    "Griffin becomes increasingly isolated because of his actions.",
+    "Major themes: science, ethics, invisibility, misuse of knowledge and lawlessness.",
+    "The title refers to the mysterious footprints left by an invisible person."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "The Making of a Scientist",
+  points: [
+    "Richard Ebright develops a strong interest in science from childhood.",
+    "His mother plays a major role in encouraging his curiosity and discipline.",
+    "He collects butterflies and begins studying them carefully.",
+    "His scientific interests gradually become more advanced.",
+    "He participates in science fairs and conducts experiments.",
+    "He learns from both successful and unsuccessful experiments.",
+    "His research eventually contributes to important scientific understanding.",
+    "Curiosity, perseverance and hard work are central to his development.",
+    "His mother encourages him to read, observe and pursue knowledge.",
+    "Major themes: scientific curiosity, hard work, discipline, education and parental support.",
+    "The chapter shows that scientific success develops through continuous effort."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "The Necklace",
+  points: [
+    "Matilda Loisel is dissatisfied with her modest lifestyle.",
+    "She dreams of wealth, luxury and social status.",
+    "She borrows a necklace from her friend Mme Forestier for a party.",
+    "Matilda enjoys the attention she receives at the event.",
+    "She later discovers that the necklace is missing.",
+    "Matilda and her husband replace the necklace by borrowing a large amount of money.",
+    "They spend many years working to repay their debt.",
+    "Matilda's life becomes difficult because of the replacement cost.",
+    "Years later she learns that the original necklace was actually inexpensive.",
+    "The ending creates strong situational irony.",
+    "Major themes: vanity, appearance, social status, ambition, hardship and irony.",
+    "The story warns against valuing appearances and material status too highly."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "Bholi",
+  points: [
+    "Bholi's real name is Sulekha.",
+    "She suffers from smallpox scars and has difficulty speaking clearly.",
+    "Her family considers her simple and lacks confidence in her abilities.",
+    "A new teacher treats Bholi with patience and kindness.",
+    "Education gradually transforms Bholi's confidence.",
+    "She learns to speak clearly and develops self-respect.",
+    "Her family arranges her marriage with Bishamber.",
+    "Bishamber demands dowry after seeing Bholi's appearance.",
+    "Bholi refuses to marry him because she values her dignity.",
+    "The story presents education as a force of empowerment.",
+    "Major themes: education, self-respect, confidence, gender equality and empowerment."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Footprints Without Feet",
+  title: "The Book That Saved the Earth",
+  points: [
+    "The play is set in the future and deals with a possible Martian invasion.",
+    "The Martians misunderstand information from a book found on Earth.",
+    "The book is a collection of nursery rhymes.",
+    "The Martians interpret the poems as dangerous military information.",
+    "Their misunderstanding causes them to abandon their invasion plan.",
+    "The play uses humour and satire to show the consequences of incorrect assumptions.",
+    "Books and knowledge become unexpected tools of protection.",
+    "Major themes: misunderstanding, books, intelligence, humour and satire.",
+    "The play also makes fun of exaggerated ideas about military intelligence.",
+    "The ending shows how a simple misunderstanding can change major events."
+  ]
+},
+
+
+/* =========================================================
+   ENGLISH — WRITING & LANGUAGE
+   ========================================================= */
+
+{
+  subject: "English",
+  group: "Writing & Language",
+  title: "Formal Letter",
+  points: [
+    "A formal letter uses a clear and professional tone.",
+    "Basic format: sender's address, date, receiver's address, subject, salutation, body, complimentary close and name.",
+    "The subject should clearly state the purpose of the letter.",
+    "The opening paragraph should introduce the issue or purpose.",
+    "The main body should provide relevant details, reasons and supporting information.",
+    "The final paragraph should clearly state the expected action or solution.",
+    "Avoid slang, unnecessary emotional language and informal expressions.",
+    "Common purposes include complaints, enquiries, requests and civic issues.",
+    "Keep the content concise, organised and logically connected.",
+    "Correct format and appropriate tone are important for scoring well."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Writing & Language",
+  title: "Analytical Paragraph",
+  points: [
+    "An analytical paragraph presents an objective analysis of a given visual source.",
+    "The source may be a chart, graph, table or other data representation.",
+    "Begin by identifying what the given data represents.",
+    "Mention the most important overall trend or observation.",
+    "Compare significant figures instead of describing every value separately.",
+    "Use suitable comparison words such as higher, lower, maximum, minimum and approximately.",
+    "Group similar trends together to make the paragraph organised.",
+    "Do not add unsupported personal opinions.",
+    "Use evidence from the given data to support observations.",
+    "End with an overall conclusion or inference.",
+    "Maintain formal language and logical sequencing."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Writing & Language",
+  title: "Grammar",
+  points: [
+    "Revise the prescribed grammar areas thoroughly before the examination.",
+    "Tenses show the time of an action or state.",
+    "Subject-verb agreement requires the verb to match the subject in number and person.",
+    "Modals express ideas such as possibility, ability, permission, obligation and advice.",
+    "Reported speech changes direct statements into indirect forms.",
+    "Pronouns may need to change when converting direct speech into reported speech.",
+    "Time and place expressions may change in reported speech depending on context.",
+    "Read the complete sentence before selecting a grammatical form.",
+    "Use context rather than relying only on memorised rules.",
+    "Always check tense, agreement, pronouns, reporting verbs and punctuation."
+  ]
+},
+
+{
+  subject: "English",
+  group: "Writing & Language",
+  title: "Reading Comprehension",
+  points: [
+    "Read the passage carefully before answering detailed questions.",
+    "Identify the central idea and purpose of the passage.",
+    "Use the questions to locate relevant information efficiently.",
+    "Answers should be precise and directly related to the question.",
+    "For vocabulary questions, understand the word from its context.",
+    "For inference questions, combine clues from different parts of the passage.",
+    "Do not add information that cannot be supported by the passage.",
+    "For title questions, choose a title that represents the entire passage.",
+    "Distinguish between facts stated directly and ideas that must be inferred.",
+    "Check every answer against the passage before submitting."
+  ]
+},
+
+
+/* =========================================================
+   SOCIAL SCIENCE — HISTORY
+   ========================================================= */
+
+{
+  subject: "SST",
+  group: "History",
+  title: "The Rise of Nationalism in Europe",
+  points: [
+    "The French Revolution introduced ideas of liberty, equality and fraternity.",
+    "The revolution helped create the concept of a nation based on common citizenship.",
+    "Napoleon introduced administrative and legal reforms in territories under his control.",
+    "The Napoleonic Code established equality before the law and removed many privileges based on birth.",
+    "Conservatives attempted to restore traditional monarchies after Napoleon's defeat.",
+    "The Treaty of Vienna of 1815 attempted to establish a conservative order in Europe.",
+    "Liberalism promoted individual freedom and equality before law for sections of society.",
+    "The unification of Germany was led by Prussia under Otto von Bismarck.",
+    "Germany was unified in 1871 after a series of wars.",
+    "Italy was unified through the efforts of figures such as Giuseppe Mazzini, Cavour and Garibaldi.",
+    "The Balkans became a centre of nationalist tensions because of competing ethnic identities and declining Ottoman control.",
+    "Nationalism and imperial rivalry contributed to political tensions in Europe."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "History",
+  title: "Nationalism in India",
+  points: [
+    "The First World War created economic and political difficulties in India.",
+    "Mahatma Gandhi returned to India in 1915 and developed satyagraha as a method of mass struggle.",
+    "The Rowlatt Act allowed the government to repress political activities.",
+    "The Jallianwala Bagh massacre intensified opposition to British rule.",
+    "The Non-Cooperation Movement was launched in 1920.",
+    "The movement encouraged people to boycott British institutions and goods.",
+    "The movement was withdrawn after the Chauri Chaura incident.",
+    "The Civil Disobedience Movement began with the Salt March in 1930.",
+    "Different social groups participated in nationalist movements for different reasons.",
+    "Peasants, business groups, workers, tribal communities and women participated in varying ways.",
+    "Nationalist symbols, folklore, songs and reinterpretations of history helped create a sense of collective identity.",
+    "Major themes: mass mobilisation, nationalism, satyagraha, unity and different interpretations of freedom."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "History",
+  title: "The Making of a Global World",
+  points: [
+    "Globalisation has historical roots extending far before the modern period.",
+    "Trade routes connected distant regions through goods, people and ideas.",
+    "The nineteenth century saw increased movement of goods, capital and labour.",
+    "Technological developments such as railways and steamships reduced travel time.",
+    "Indentured labour was used extensively in colonial economies.",
+    "European colonialism transformed economies and societies across the world.",
+    "The First World War disrupted the global economy.",
+    "The Great Depression began in 1929 and affected production, trade, employment and agriculture.",
+    "Indian farmers were heavily affected by falling agricultural prices during the Depression.",
+    "Post-war international institutions contributed to rebuilding and restructuring the world economy.",
+    "Globalisation has involved both opportunities and unequal consequences.",
+    "Major themes: trade, migration, technology, colonialism, economic crises and interconnectedness."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "History",
+  title: "The Age of Industrialisation",
+  points: [
+    "Industrialisation refers to the growth of machine-based production and factories.",
+    "Proto-industrialisation existed before the rise of modern factories.",
+    "Merchants supplied raw materials to rural households and collected finished goods.",
+    "The Industrial Revolution began in Britain.",
+    "The textile industry became one of Britain's most important industrial sectors.",
+    "Factories increased production but did not immediately eliminate traditional forms of production.",
+    "Workers often faced long hours, low wages and difficult working conditions.",
+    "Indian textile production had a long tradition before British industrialisation.",
+    "British machine-made textiles created intense competition for Indian producers.",
+    "Indian weavers experienced declining demand and changing market conditions.",
+    "The First World War temporarily increased demand for Indian industrial goods.",
+    "Major themes: factories, workers, industrialisation, colonialism and changing production systems."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "History",
+  title: "Print Culture and the Modern World",
+  points: [
+    "The earliest print technologies developed in East Asia.",
+    "China, Japan and Korea had established printing traditions before Europe.",
+    "Johann Gutenberg developed the printing press in Europe in the fifteenth century.",
+    "The printing press greatly increased the speed and scale of book production.",
+    "Print helped create wider reading publics.",
+    "Religious reformers used printed material to spread their ideas.",
+    "Print encouraged debate, discussion and the circulation of political ideas.",
+    "Governments sometimes attempted to control or censor printed material.",
+    "Print culture developed significantly in colonial India.",
+    "Newspapers, journals and books became important tools of social and political discussion.",
+    "Print contributed to debates about caste, religion, reform and nationalism.",
+    "Major themes: technology, literacy, reform, censorship, public debate and nationalism."
+  ]
+},
+
+
+/* =========================================================
+   SOCIAL SCIENCE — GEOGRAPHY
+   ========================================================= */
+
+{
+  subject: "SST",
+  group: "Geography",
+  title: "Resources and Development",
+  points: [
+    "A resource is anything available in the environment that can satisfy human needs when it is technologically accessible and economically feasible.",
+    "Resources can be classified by origin, exhaustibility, ownership and status of development.",
+    "Resource planning is necessary for sustainable and balanced development.",
+    "The major steps of resource planning include identification, planning structure and matching resource development with national plans.",
+    "Land is an important natural resource supporting agriculture, forests and settlements.",
+    "Land degradation may result from deforestation, overgrazing, mining and improper agricultural practices.",
+    "Soil is a renewable natural resource but can degrade if poorly managed.",
+    "Alluvial soil is widespread in the northern plains and is highly suitable for agriculture.",
+    "Black soil is particularly suitable for cotton cultivation.",
+    "Red and yellow soils develop on crystalline igneous rocks.",
+    "Laterite soil develops under conditions of high temperature and heavy rainfall.",
+    "Soil erosion can be reduced through contour ploughing, terrace farming, strip cropping and afforestation.",
+    "Major themes: resource planning, land resources, soil types, degradation and conservation."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Geography",
+  title: "Forest and Wildlife Resources",
+  points: [
+    "Biodiversity refers to the variety of living organisms in a region.",
+    "Forests and wildlife are important for ecological balance and human livelihoods.",
+    "Species may be classified as normal, endangered, vulnerable, rare, endemic or extinct.",
+    "Habitat destruction is a major cause of biodiversity loss.",
+    "Deforestation, hunting, pollution and overexploitation threaten wildlife.",
+    "Protected areas such as national parks, wildlife sanctuaries and biosphere reserves help conserve biodiversity.",
+    "Community participation is important for effective conservation.",
+    "Sacred groves are traditional community-protected forest areas.",
+    "The Chipko Movement demonstrated community resistance to destructive forest use.",
+    "Conservation should consider the needs and knowledge of local communities.",
+    "Major themes: biodiversity, conservation, protected areas, community participation and sustainable use."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Geography",
+  title: "Water Resources",
+  points: [
+    "Water is essential for domestic use, agriculture, industry and ecosystem functioning.",
+    "Freshwater availability is limited despite the abundance of water on Earth.",
+    "Population growth, urbanisation and industrialisation increase pressure on water resources.",
+    "Multipurpose river valley projects provide benefits such as irrigation, electricity and flood control.",
+    "Large dams can also create environmental and social problems.",
+    "Water scarcity can result from population growth, intensive irrigation, industrialisation and unequal distribution.",
+    "Rainwater harvesting helps conserve water and recharge groundwater.",
+    "Traditional water harvesting systems differ across regions of India.",
+    "Tamil Nadu has promoted rooftop rainwater harvesting extensively.",
+    "Sustainable water management requires efficient use and conservation.",
+    "Major themes: scarcity, dams, irrigation, rainwater harvesting and conservation."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Geography",
+  title: "Agriculture",
+  points: [
+    "Agriculture is an important economic activity and provides employment to a large population.",
+    "Indian agriculture includes subsistence and commercial farming systems.",
+    "Primitive subsistence farming may involve shifting cultivation.",
+    "Intensive subsistence farming is common in densely populated regions.",
+    "Commercial farming focuses more strongly on market production.",
+    "Rice requires high temperature, humidity and substantial water.",
+    "Wheat is an important rabi crop requiring a cooler growing season.",
+    "Millets are nutritious and can grow in relatively less favourable conditions.",
+    "Cash crops include crops such as cotton, jute, sugarcane, tea and coffee.",
+    "Technological changes such as irrigation, HYV seeds and fertilisers contributed to agricultural growth.",
+    "Indian agriculture faces challenges including small landholdings, water stress, climate variability and market issues.",
+    "Major themes: farming systems, cropping patterns, major crops, technological change and challenges."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Geography",
+  title: "Minerals and Energy Resources",
+  points: [
+    "Minerals are naturally occurring substances with a definite chemical composition and physical properties.",
+    "Minerals can occur in veins, lodes, beds, layers and alluvial deposits.",
+    "Ferrous minerals contain iron and are important for the iron and steel industry.",
+    "Non-ferrous minerals include copper, bauxite and lead.",
+    "Mica is important for electrical and electronic industries because of its insulating properties.",
+    "Coal is a major fossil fuel and important source of energy.",
+    "Petroleum is used as fuel and as a raw material for many industries.",
+    "Natural gas is a cleaner fossil fuel compared with coal and petroleum.",
+    "Conventional energy sources include coal, petroleum, natural gas and electricity from major projects.",
+    "Non-conventional sources include solar, wind, tidal, biogas and geothermal energy.",
+    "Mineral resources are finite and should be used carefully.",
+    "Major themes: mineral types, distribution, energy sources, conservation and sustainable use."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Geography",
+  title: "Manufacturing Industries",
+  points: [
+    "Manufacturing involves converting raw materials into products of greater utility.",
+    "Manufacturing is important for employment, economic growth and modernisation.",
+    "Industrial location depends on factors such as raw materials, labour, power, capital, transport and markets.",
+    "The textile industry is one of India's important manufacturing sectors.",
+    "The iron and steel industry is a basic industry because many other industries depend on it.",
+    "The jute industry is concentrated mainly around the Hooghly region.",
+    "Sugar industries are often located close to sugarcane-producing areas.",
+    "Chemical industries produce a wide variety of products used by other industries and consumers.",
+    "Manufacturing can cause air, water, thermal and noise pollution.",
+    "Pollution can be controlled through cleaner technologies, waste treatment and efficient resource use.",
+    "Major themes: industrial location, major industries, employment, pollution and sustainable manufacturing."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Geography",
+  title: "Lifelines of National Economy",
+  points: [
+    "Transport and communication connect producers, consumers and markets.",
+    "Roadways are useful for short distances and provide door-to-door services.",
+    "Railways are important for transporting passengers and bulk goods over long distances.",
+    "Pipelines transport liquids and gases efficiently.",
+    "Waterways are economical for transporting heavy and bulky goods.",
+    "Airways are the fastest mode of transport and are useful for long-distance travel.",
+    "Ports connect India's economy with international trade.",
+    "Communication includes personal communication and mass communication.",
+    "Tourism contributes to employment, foreign exchange and cultural exchange.",
+    "Transport networks are essential for the movement of goods, people and information.",
+    "Major themes: roads, railways, pipelines, waterways, airways, communication, ports and tourism."
+  ]
+},
+
+);
+
+/* =========================================================
+   STUDYOS — APP.JS
+   PART 3/3
+   REMAINING SST + APP FUNCTIONS
+   ========================================================= */
+
+
+/* =========================================================
+   SOCIAL SCIENCE — CIVICS
+   ========================================================= */
+
+DATA.push(
+
+{
+  subject: "SST",
+  group: "Political Science",
+  title: "Power Sharing",
+  points: [
+    "Power sharing is the distribution of power among different organs, levels and groups in society.",
+    "Belgium adopted power-sharing arrangements to accommodate its linguistic communities.",
+    "The Belgian model included equal representation of major linguistic communities in the central government.",
+    "Community government allowed linguistic communities to manage cultural, educational and language-related matters.",
+    "Sri Lanka followed majoritarian policies that favoured the Sinhala-speaking majority.",
+    "The Sinhala Only Act of 1956 made Sinhala the official language.",
+    "Majoritarian policies contributed to conflict between Sinhala and Tamil communities.",
+    "Power sharing reduces the possibility of social conflict and political instability.",
+    "Prudential reasons support power sharing because it reduces conflict and ensures political stability.",
+    "Moral reasons support power sharing because people have a right to participate in decisions affecting them.",
+    "Power sharing can take place among organs of government, levels of government, social groups and political parties.",
+    "Major themes: accommodation, democracy, majority rule, minority rights and conflict prevention."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Political Science",
+  title: "Federalism",
+  points: [
+    "Federalism is a system in which power is divided between a central authority and constituent units.",
+    "There are usually two or more levels of government in a federal system.",
+    "Each level has constitutionally guaranteed powers and responsibilities.",
+    "The Constitution clearly specifies the division of legislative powers.",
+    "Courts act as independent authorities for resolving disputes between different levels of government.",
+    "Federalism aims to accommodate regional diversity while maintaining national unity.",
+    "India has Union, State and Local levels of government.",
+    "The Constitution divides subjects into Union, State and Concurrent Lists.",
+    "India's language policy helped avoid imposing a single language throughout the country.",
+    "Decentralisation transferred powers to elected local governments.",
+    "The 1992 constitutional amendments strengthened local self-government.",
+    "Major themes: division of power, decentralisation, diversity, local government and constitutional safeguards."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Political Science",
+  title: "Gender, Religion and Caste",
+  points: [
+    "Gender division refers to social differences and unequal roles assigned to men and women.",
+    "Women have historically faced discrimination in education, employment, political representation and social life.",
+    "The feminist movement demanded equality and greater opportunities for women.",
+    "Sexual division of labour often assigns household work mainly to women.",
+    "Political representation of women can increase attention to women's concerns.",
+    "Religion can influence social values and political behaviour.",
+    "Communalism occurs when religion becomes the basis for political division and conflict.",
+    "Caste divisions are deeply rooted in Indian social history.",
+    "Caste inequalities have weakened but have not disappeared completely.",
+    "Political parties may use caste and community identities to mobilise voters.",
+    "Democracy can help disadvantaged groups demand equality and representation.",
+    "Major themes: gender inequality, communalism, caste, representation and social equality."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Political Science",
+  title: "Political Parties",
+  points: [
+    "A political party is a group of people who come together to contest elections and hold power in government.",
+    "Political parties have three major components: leaders, active members and followers.",
+    "Parties contest elections and put forward candidates.",
+    "The winning party or coalition forms the government.",
+    "Parties formulate policies and programmes for society.",
+    "Political parties play an important role in shaping public opinion.",
+    "Parties act as a link between citizens and government.",
+    "India has a multi-party system because of its social and regional diversity.",
+    "Major challenges include lack of internal democracy, dynastic succession, money and muscle power, and limited meaningful choice.",
+    "Political parties can be improved through transparency, internal elections and greater participation.",
+    "Major themes: elections, government formation, representation, challenges and reforms.",
+    "Political parties are essential for the functioning of representative democracy."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Political Science",
+  title: "Outcomes of Democracy",
+  points: [
+    "Democracy is expected to produce accountable, responsive and legitimate government.",
+    "Democratic governments are answerable to citizens through elections and public institutions.",
+    "Democracy improves the quality of decision-making by allowing discussion and consultation.",
+    "Democratic systems provide peaceful methods for resolving differences and conflicts.",
+    "Democracy can enhance the dignity and equality of citizens.",
+    "Democracy allows citizens to correct mistakes through elections and public participation.",
+    "Democracies may not always produce rapid economic growth.",
+    "Economic inequality and unequal distribution of wealth can continue under democracy.",
+    "Democracy provides mechanisms for addressing social diversity and differences.",
+    "The success of democracy should be judged by accountability, participation, equality and dignity.",
+    "Major themes: accountability, responsiveness, legitimacy, economic outcomes, equality and dignity."
+  ]
+},
+
+
+/* =========================================================
+   SOCIAL SCIENCE — ECONOMICS
+   ========================================================= */
+
+{
+  subject: "SST",
+  group: "Economics",
+  title: "Development",
+  points: [
+    "Different people can have different development goals.",
+    "Income is an important indicator of development but is not the only one.",
+    "People may value security, equality, freedom, education, health and respect.",
+    "Average income is calculated by dividing total income by total population.",
+    "Per capita income is used to compare average income between countries or regions.",
+    "Public facilities such as schools, hospitals and sanitation influence quality of life.",
+    "Infant mortality rate measures the number of children who die before reaching one year of age per 1,000 live births.",
+    "Literacy rate measures the proportion of literate people in a population.",
+    "Human Development indicators consider dimensions such as health, education and income.",
+    "Sustainable development requires meeting present needs without damaging future possibilities.",
+    "Development should include both material and non-material aspects of life.",
+    "Major themes: income, quality of life, public facilities, human development and sustainability."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Economics",
+  title: "Sectors of the Indian Economy",
+  points: [
+    "Economic activities can be classified into primary, secondary and tertiary sectors.",
+    "Primary activities directly use natural resources, such as agriculture and fishing.",
+    "Secondary activities involve manufacturing and processing.",
+    "Tertiary activities provide services such as transport, banking, education and healthcare.",
+    "The organised sector follows government rules and provides greater formal security to workers.",
+    "The unorganised sector often has less formal protection and regulation.",
+    "Public sector enterprises are owned or controlled by the government.",
+    "Private sector enterprises are owned by individuals or private organisations.",
+    "Disguised unemployment occurs when more people work on an activity than are actually required.",
+    "The government creates employment and provides essential public services.",
+    "The tertiary sector has become increasingly important in India's economy.",
+    "Major themes: sectors, employment, organised and unorganised sectors, public and private sectors."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Economics",
+  title: "Money and Credit",
+  points: [
+    "Money acts as a medium of exchange and removes the need for double coincidence of wants.",
+    "Modern forms of money include currency and deposits with banks.",
+    "Banks accept deposits from people and use a portion of them to provide loans.",
+    "Demand deposits can be withdrawn when required and can be used for payments.",
+    "Credit can help people invest, produce goods and increase income.",
+    "Formal sources of credit include banks and cooperative societies.",
+    "Informal sources include moneylenders, traders, employers, relatives and friends.",
+    "Formal credit is generally regulated by institutions such as the Reserve Bank of India.",
+    "Interest rates and repayment conditions affect the cost of borrowing.",
+    "Collateral is an asset used as security against a loan.",
+    "Self-help groups can provide credit to members who may have limited access to formal banking.",
+    "Major themes: money, banks, credit, collateral, formal and informal sources."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Economics",
+  title: "Globalisation and the Indian Economy",
+  points: [
+    "Globalisation refers to increasing integration of production and markets across countries.",
+    "Multinational corporations operate and invest in several countries.",
+    "MNCs may set up production units, collaborate with local companies or purchase existing businesses.",
+    "Foreign investment can bring capital, technology and access to international markets.",
+    "Liberalisation reduced many restrictions on imports and foreign investment in India after 1991.",
+    "The World Trade Organization establishes rules for international trade.",
+    "Globalisation has increased competition among producers.",
+    "Consumers may benefit from greater variety and improved quality of products.",
+    "Small producers may face difficulties competing with large international companies.",
+    "The effects of globalisation are not equally beneficial to all producers and workers.",
+    "Fair globalisation requires policies that protect workers and support disadvantaged producers.",
+    "Major themes: MNCs, investment, liberalisation, WTO, competition and impacts of globalisation."
+  ]
+},
+
+{
+  subject: "SST",
+  group: "Economics",
+  title: "Consumer Rights",
+  points: [
+    "Consumers need protection against unsafe products, unfair trade practices and misleading information.",
+    "The Consumer Protection Act provides legal protection to consumers.",
+    "Consumers have the right to safety against hazardous goods and services.",
+    "Consumers have the right to be informed about quality, quantity, price and other relevant details.",
+    "Consumers have the right to choose from different products and services.",
+    "Consumers have the right to seek redressal against unfair practices.",
+    "Consumers have the right to representation and to have their interests considered.",
+    "Quality certification marks such as ISI and Hallmark help consumers identify standards.",
+    "Bills, receipts and warranty documents are important evidence when making complaints.",
+    "Consumer awareness is important because informed consumers can make better choices.",
+    "Consumer organisations help spread awareness and support consumer protection.",
+    "Major themes: consumer rights, awareness, certification, redressal and responsible purchasing."
+  ]
+}
+
+);
+
+
+/* =========================================================
+   APP STATE
+   ========================================================= */
+
+const ACCESS_CODE = "STUDYOS10";
+
+let currentSubject = null;
+let currentGroup = null;
+
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const gate = document.getElementById("gate");
+const app = document.getElementById("app");
+const codeInput = document.getElementById("code");
+const enterBtn = document.getElementById("enter");
+const errorText = document.getElementById("err");
+
+const homeBtn = document.getElementById("home");
+const lockBtn = document.getElementById("lock");
+const themeBtn = document.getElementById("theme");
+
+const subjectsSection = document.getElementById("subjects");
+const librarySection = document.getElementById("library");
+const resultsSection = document.getElementById("results");
+
+const backBtn = document.getElementById("back");
+const libTitle = document.getElementById("libTitle");
+const libEyebrow = document.getElementById("libEyebrow");
+
+const filters = document.getElementById("filters");
+const grid = document.getElementById("grid");
+
+const searchInput = document.getElementById("search");
+const resultGrid = document.getElementById("resultGrid");
+const resultCount = document.getElementById("resultCount");
+
+const modal = document.getElementById("modal");
+const shade = document.getElementById("shade");
+const closeBtn = document.getElementById("close");
+const doneBtn = document.getElementById("done");
+
+const modalGroup = document.getElementById("mgroup");
+const modalTitle = document.getElementById("mtitle");
+const pointsBox = document.getElementById("points");
+
+
+/* =========================================================
+   ACCESS GATE
+   ========================================================= */
+
+function unlockStudyOS() {
+  const entered = codeInput.value.trim();
+
+  if (entered === ACCESS_CODE) {
+    sessionStorage.setItem("studyosUnlocked", "true");
+
+    gate.classList.add("hidden");
+    app.classList.remove("hidden");
+
+    errorText.textContent = "";
+    codeInput.value = "";
+  } else {
+    errorText.textContent = "Incorrect access code.";
+
+    codeInput.classList.remove("shake");
+
+    void codeInput.offsetWidth;
+
+    codeInput.classList.add("shake");
+
+    codeInput.focus();
+  }
+}
+
+
+function lockStudyOS() {
+  sessionStorage.removeItem("studyosUnlocked");
+
+  app.classList.add("hidden");
+  gate.classList.remove("hidden");
+
+  codeInput.value = "";
+  errorText.textContent = "";
+
+  codeInput.focus();
+}
+
+
+if (enterBtn) {
+  enterBtn.addEventListener("click", unlockStudyOS);
+}
+
+
+if (codeInput) {
+  codeInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      unlockStudyOS();
     }
   });
 }
 
-updateCounts();
 
-
-// ======================================================
-// SUBJECT LIBRARY
-// ======================================================
-
-function getGroups(subject) {
-  return [...new Set(
-    DATA
-      .filter(x => x.subject === subject)
-      .map(x => x.group)
-  )];
+if (sessionStorage.getItem("studyosUnlocked") === "true") {
+  gate.classList.add("hidden");
+  app.classList.remove("hidden");
 }
 
-function openSubject(subject) {
-  currentSubject = subject;
-  currentFilter = "All";
 
-  subjects.classList.add("hidden");
-  results.classList.add("hidden");
-  library.classList.remove("hidden");
+/* =========================================================
+   SUBJECT BUTTONS
+   ========================================================= */
+
+document.querySelectorAll(".subject").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const subject = button.dataset.sub;
+
+    openSubject(subject);
+
+  });
+
+});
+
+
+/* =========================================================
+   OPEN SUBJECT
+   ========================================================= */
+
+function openSubject(subject) {
+
+  currentSubject = subject;
+  currentGroup = null;
+
+  subjectsSection.classList.add("hidden");
+  resultsSection.classList.add("hidden");
+  librarySection.classList.remove("hidden");
+
+  libTitle.textContent =
+    subject === "SST" ? "Social Science" : subject;
 
   libEyebrow.textContent =
     subject === "SST"
       ? "SOCIAL SCIENCE"
       : subject.toUpperCase();
 
-  libTitle.textContent =
-    subject === "SST"
-      ? "Social Science"
-      : subject;
+  buildFilters(subject);
+  renderLibrary(subject);
 
-  buildFilters();
-  renderLibrary();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
 }
 
-function buildFilters() {
+
+/* =========================================================
+   BUILD FILTER BUTTONS
+   ========================================================= */
+
+function buildFilters(subject) {
+
   filters.innerHTML = "";
 
-  const groups = getGroups(currentSubject);
+  const groups = [
+    ...new Set(
+      DATA
+        .filter(item => item.subject === subject)
+        .map(item => item.group)
+    )
+  ];
 
-  const all = document.createElement("button");
-  all.textContent = "All";
-  all.className = "filter active";
-  all.dataset.filter = "All";
-  filters.appendChild(all);
+  const allButton = document.createElement("button");
+
+  allButton.textContent = "All";
+  allButton.className = "filter active";
+
+  allButton.addEventListener("click", () => {
+
+    currentGroup = null;
+
+    document
+      .querySelectorAll(".filter")
+      .forEach(btn => btn.classList.remove("active"));
+
+    allButton.classList.add("active");
+
+    renderLibrary(subject);
+
+  });
+
+  filters.appendChild(allButton);
+
 
   groups.forEach(group => {
+
     const button = document.createElement("button");
 
     button.textContent = group
@@ -1330,323 +1815,457 @@ function buildFilters() {
       .replace("Writing & Language", "Language");
 
     button.className = "filter";
-    button.dataset.filter = group;
 
-    filters.appendChild(button);
-  });
-
-  filters.querySelectorAll(".filter").forEach(button => {
     button.addEventListener("click", () => {
-      currentFilter = button.dataset.filter;
 
-      filters.querySelectorAll(".filter")
-        .forEach(x => x.classList.remove("active"));
+      currentGroup = group;
+
+      document
+        .querySelectorAll(".filter")
+        .forEach(btn => btn.classList.remove("active"));
 
       button.classList.add("active");
 
-      renderLibrary();
+      renderLibrary(subject);
+
     });
+
+    filters.appendChild(button);
+
   });
+
 }
 
-function renderLibrary() {
+
+/* =========================================================
+   RENDER LIBRARY
+   ========================================================= */
+
+function renderLibrary(subject) {
+
   grid.innerHTML = "";
 
-  let items = DATA.filter(x => x.subject === currentSubject);
+  let items = DATA.filter(item => item.subject === subject);
 
-  if (currentFilter !== "All") {
-    items = items.filter(x => x.group === currentFilter);
+  if (currentGroup) {
+    items = items.filter(item => item.group === currentGroup);
   }
 
   if (!items.length) {
+
     grid.innerHTML = `
       <div class="empty">
         <h3>No chapters found</h3>
-        <p>Try another category.</p>
+        <p>Try another section.</p>
       </div>
     `;
+
     return;
   }
 
+
   items.forEach((item, index) => {
-    grid.appendChild(createCard(item, index));
+
+    const card = createChapterCard(item, index);
+
+    grid.appendChild(card);
+
   });
+
 }
 
 
-// ======================================================
-// CHAPTER CARDS
-// ======================================================
+/* =========================================================
+   CREATE CHAPTER CARD
+   ========================================================= */
 
-function createCard(item, index) {
+function createChapterCard(item, index) {
+
   const card = document.createElement("button");
 
-  card.className = "card";
-  card.type = "button";
+  card.className = "chapter";
 
   card.innerHTML = `
-    <div class="cardtop">
-      <span class="number">${String(index + 1).padStart(2, "0")}</span>
-      <span class="arrow">↗</span>
-    </div>
+    <span class="chapter-num">
+      ${String(index + 1).padStart(2, "0")}
+    </span>
 
-    <div class="cardgroup">
-      ${escapeHTML(item.group)}
-    </div>
+    <span class="chapter-content">
+      <small>${escapeHTML(item.group)}</small>
+      <strong>${escapeHTML(item.title)}</strong>
+      <em>${item.points.length} important points</em>
+    </span>
 
-    <h3>${escapeHTML(item.title)}</h3>
-
-    <p>
-      ${item.points.length} important revision points
-    </p>
-
-    <div class="cardline"></div>
+    <span class="chapter-arrow">↗</span>
   `;
 
   card.addEventListener("click", () => {
+
     openModal(item);
+
   });
 
   return card;
+
 }
 
 
-// ======================================================
-// SEARCH
-// ======================================================
-
-function search(query) {
-  const q = query.trim().toLowerCase();
-
-  if (!q) {
-    results.classList.add("hidden");
-
-    if (currentSubject) {
-      library.classList.remove("hidden");
-    } else {
-      subjects.classList.remove("hidden");
-    }
-
-    return;
-  }
-
-  library.classList.add("hidden");
-  subjects.classList.add("hidden");
-  results.classList.remove("hidden");
-
-  const matches = DATA.filter(item => {
-    const searchable = [
-      item.subject,
-      item.group,
-      item.title,
-      ...item.points
-    ]
-      .join(" ")
-      .toLowerCase();
-
-    return searchable.includes(q);
-  });
-
-  resultCount.textContent = matches.length;
-  resultGrid.innerHTML = "";
-
-  if (!matches.length) {
-    resultGrid.innerHTML = `
-      <div class="empty">
-        <h3>No results</h3>
-        <p>Try searching for another chapter, topic or keyword.</p>
-      </div>
-    `;
-    return;
-  }
-
-  matches.forEach((item, index) => {
-    resultGrid.appendChild(createCard(item, index));
-  });
-}
-
-if (searchInput) {
-  searchInput.addEventListener("input", e => {
-    search(e.target.value);
-  });
-}
-
-// ======================================================
-// MODAL
-// ======================================================
+/* =========================================================
+   MODAL
+   ========================================================= */
 
 function openModal(item) {
-  mgroup.textContent = item.group;
-  mtitle.textContent = item.title;
+
+  modalGroup.textContent = item.group;
+  modalTitle.textContent = item.title;
 
   pointsBox.innerHTML = "";
 
   item.points.forEach((point, index) => {
-    const row = document.createElement("div");
 
-    row.className = "point";
+    const pointElement = document.createElement("div");
 
-    row.innerHTML = `
-      <span class="pointnum">${String(index + 1).padStart(2, "0")}</span>
+    pointElement.className = "point";
+
+    pointElement.innerHTML = `
+      <span>${String(index + 1).padStart(2, "0")}</span>
       <p>${escapeHTML(point)}</p>
     `;
 
-    pointsBox.appendChild(row);
+    pointsBox.appendChild(pointElement);
+
   });
 
   modal.classList.remove("hidden");
 
   document.body.classList.add("modal-open");
+
 }
 
+
 function closeModal() {
+
   modal.classList.add("hidden");
+
   document.body.classList.remove("modal-open");
+
 }
+
 
 if (closeBtn) {
   closeBtn.addEventListener("click", closeModal);
 }
 
+
 if (doneBtn) {
   doneBtn.addEventListener("click", closeModal);
 }
+
 
 if (shade) {
   shade.addEventListener("click", closeModal);
 }
 
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") {
+
+document.addEventListener("keydown", event => {
+
+  if (event.key === "Escape") {
     closeModal();
   }
+
 });
 
 
-// ======================================================
-// NAVIGATION
-// ======================================================
-
-document.querySelectorAll("[data-sub]").forEach(button => {
-  button.addEventListener("click", () => {
-    openSubject(button.dataset.sub);
-  });
-});
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
 
 if (backBtn) {
+
   backBtn.addEventListener("click", () => {
+
+    librarySection.classList.add("hidden");
+    resultsSection.classList.add("hidden");
+    subjectsSection.classList.remove("hidden");
+
     currentSubject = null;
-    currentFilter = "All";
-
-    library.classList.add("hidden");
-    results.classList.add("hidden");
-    subjects.classList.remove("hidden");
-
-    if (searchInput) {
-      searchInput.value = "";
-    }
-  });
-}
-
-if (homeBtn) {
-  homeBtn.addEventListener("click", () => {
-    currentSubject = null;
-
-    library.classList.add("hidden");
-    results.classList.add("hidden");
-    subjects.classList.remove("hidden");
-
-    if (searchInput) {
-      searchInput.value = "";
-    }
+    currentGroup = null;
 
     window.scrollTo({
-      top:0,
-      behavior:"smooth"
+      top: 0,
+      behavior: "smooth"
     });
+
   });
+
 }
 
 
-// ======================================================
-// THEME
-// ======================================================
+/* =========================================================
+   HOME BUTTON
+   ========================================================= */
 
-function applyTheme(theme) {
-  document.documentElement.dataset.theme = theme;
+if (homeBtn) {
 
-  localStorage.setItem("studyos_theme", theme);
+  homeBtn.addEventListener("click", () => {
 
-  if (themeBtn) {
-    themeBtn.textContent = theme === "dark" ? "☀" : "◐";
-  }
-}
+    librarySection.classList.add("hidden");
+    resultsSection.classList.add("hidden");
+    subjectsSection.classList.remove("hidden");
 
-const savedTheme = localStorage.getItem("studyos_theme");
+    currentSubject = null;
+    currentGroup = null;
 
-if (savedTheme) {
-  applyTheme(savedTheme);
-}
+    searchInput.value = "";
 
-if (themeBtn) {
-  themeBtn.addEventListener("click", () => {
-    const current =
-      document.documentElement.dataset.theme === "dark"
-        ? "dark"
-        : "light";
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
 
-    applyTheme(current === "dark" ? "light" : "dark");
   });
+
 }
 
 
-// ======================================================
-// LOCK
-// ======================================================
+/* =========================================================
+   LOCK BUTTON
+   ========================================================= */
 
 if (lockBtn) {
-  lockBtn.addEventListener("click", lockApp);
+
+  lockBtn.addEventListener("click", lockStudyOS);
+
 }
 
 
-// ======================================================
-// KEYBOARD SHORTCUT
-// ======================================================
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
-document.addEventListener("keydown", e => {
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
-    e.preventDefault();
+function performSearch(query) {
 
-    if (searchInput) {
-      searchInput.focus();
-      searchInput.select();
+  const term = query.trim().toLowerCase();
+
+  if (!term) {
+
+    resultsSection.classList.add("hidden");
+
+    if (currentSubject) {
+      librarySection.classList.remove("hidden");
+    } else {
+      subjectsSection.classList.remove("hidden");
     }
+
+    return;
+
   }
+
+
+  subjectsSection.classList.add("hidden");
+  librarySection.classList.add("hidden");
+  resultsSection.classList.remove("hidden");
+
+  const results = DATA.filter(item => {
+
+    const searchableText = [
+
+      item.subject,
+      item.group,
+      item.title,
+      ...item.points
+
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    return searchableText.includes(term);
+
+  });
+
+
+  resultCount.textContent =
+    `${results.length} result${results.length === 1 ? "" : "s"}`;
+
+
+  resultGrid.innerHTML = "";
+
+
+  if (!results.length) {
+
+    resultGrid.innerHTML = `
+      <div class="empty">
+        <h3>No results found</h3>
+        <p>Try searching for another chapter, topic or keyword.</p>
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  results.forEach((item, index) => {
+
+    const card = createChapterCard(item, index);
+
+    resultGrid.appendChild(card);
+
+  });
+
+}
+
+
+if (searchInput) {
+
+  searchInput.addEventListener("input", event => {
+
+    performSearch(event.target.value);
+
+  });
+
+}
+
+
+/* =========================================================
+   SEARCH SHORTCUT — CTRL/CMD + K
+   ========================================================= */
+
+document.addEventListener("keydown", event => {
+
+  if (
+    (event.ctrlKey || event.metaKey) &&
+    event.key.toLowerCase() === "k"
+  ) {
+
+    event.preventDefault();
+
+    searchInput.focus();
+
+  }
+
 });
 
 
-// ======================================================
-// SAFE HTML
-// ======================================================
+/* =========================================================
+   THEME
+   ========================================================= */
+
+function updateThemeButton() {
+
+  const dark =
+    document.documentElement.classList.contains("dark");
+
+  themeBtn.textContent = dark ? "☀" : "◐";
+
+}
+
+
+function setTheme(dark) {
+
+  document.documentElement.classList.toggle("dark", dark);
+
+  localStorage.setItem(
+    "studyosTheme",
+    dark ? "dark" : "light"
+  );
+
+  updateThemeButton();
+
+}
+
+
+const savedTheme =
+  localStorage.getItem("studyosTheme");
+
+
+if (savedTheme === "dark") {
+
+  setTheme(true);
+
+} else {
+
+  setTheme(false);
+
+}
+
+
+if (themeBtn) {
+
+  themeBtn.addEventListener("click", () => {
+
+    const dark =
+      !document.documentElement.classList.contains("dark");
+
+    setTheme(dark);
+
+  });
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
 
 function escapeHTML(value) {
+
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+
 }
 
 
-// ======================================================
-// INITIAL STATE
-// ======================================================
+/* =========================================================
+   CHAPTER COUNT
+   ========================================================= */
 
-subjects.classList.remove("hidden");
-library.classList.add("hidden");
-results.classList.add("hidden");
+function updateChapterCount() {
 
-console.log(
-  `StudyOS loaded successfully — ${DATA.length} chapters.`
-);
+  const totalElement =
+    document.getElementById("total");
+
+  if (!totalElement) return;
+
+  totalElement.textContent =
+    `${DATA.length} chapters`;
+
+}
+
+
+updateChapterCount();
+
+
+/* =========================================================
+   STARTUP
+   ========================================================= */
+
+function initialiseStudyOS() {
+
+  if (!sessionStorage.getItem("studyosUnlocked")) {
+
+    gate.classList.remove("hidden");
+    app.classList.add("hidden");
+
+  }
+
+  else {
+
+    gate.classList.add("hidden");
+    app.classList.remove("hidden");
+
+  }
+
+}
+
+
+initialiseStudyOS();
+
+
+/* =========================================================
+   END OF APP.JS
+   ========================================================= */
