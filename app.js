@@ -8,7 +8,6 @@
    ACCESS SYSTEM
    ========================================================= */
 
-const ACCESS_CODE = "STUDYOS10";
 
 const gate = document.getElementById("gate");
 const app = document.getElementById("app");
@@ -1658,66 +1657,110 @@ const pointsBox = document.getElementById("points");
 
 
 /* =========================================================
-   ACCESS GATE
+   STUDYOS ACCESS GATE — FIXED
    ========================================================= */
 
-function unlockStudyOS() {
-  const entered = codeInput.value.trim();
+document.addEventListener("DOMContentLoaded", () => {
 
-  if (entered === ACCESS_CODE) {
-    sessionStorage.setItem("studyosUnlocked", "true");
+    const gate = document.getElementById("gate");
+    const app = document.getElementById("app");
+    const codeInput = document.getElementById("code");
+    const enterBtn = document.getElementById("enter");
+    const errorText = document.getElementById("err");
 
-    gate.classList.add("hidden");
-    app.classList.remove("hidden");
-
-    errorText.textContent = "";
-    codeInput.value = "";
-  } else {
-    errorText.textContent = "Incorrect access code.";
-
-    codeInput.classList.remove("shake");
-
-    void codeInput.offsetWidth;
-
-    codeInput.classList.add("shake");
-
-    codeInput.focus();
-  }
-}
+    const ACCESS_CODE = "STUDYOS10";
 
 
-function lockStudyOS() {
-  sessionStorage.removeItem("studyosUnlocked");
-
-  app.classList.add("hidden");
-  gate.classList.remove("hidden");
-
-  codeInput.value = "";
-  errorText.textContent = "";
-
-  codeInput.focus();
-}
-
-
-if (enterBtn) {
-  enterBtn.addEventListener("click", unlockStudyOS);
-}
-
-
-if (codeInput) {
-  codeInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-      unlockStudyOS();
+    // Safety check
+    if (!gate || !app || !codeInput || !enterBtn || !errorText) {
+        console.error("StudyOS access elements not found.");
+        return;
     }
-  });
-}
 
 
-if (sessionStorage.getItem("studyosUnlocked") === "true") {
-  gate.classList.add("hidden");
-  app.classList.remove("hidden");
-}
+    function unlock() {
 
+        const enteredCode = codeInput.value.trim();
+
+        if (enteredCode === ACCESS_CODE) {
+
+            gate.classList.add("hidden");
+            app.classList.remove("hidden");
+
+            sessionStorage.setItem(
+                "studyosUnlocked",
+                "true"
+            );
+
+            errorText.textContent = "";
+
+        } else {
+
+            errorText.textContent = "Incorrect access code.";
+
+            codeInput.value = "";
+            codeInput.focus();
+
+        }
+
+    }
+
+
+    function lock() {
+
+        sessionStorage.removeItem(
+            "studyosUnlocked"
+        );
+
+        app.classList.add("hidden");
+        gate.classList.remove("hidden");
+
+        codeInput.value = "";
+        errorText.textContent = "";
+
+        codeInput.focus();
+
+    }
+
+
+    // Enter button
+    enterBtn.addEventListener("click", unlock);
+
+
+    // Press Enter inside the password box
+    codeInput.addEventListener("keydown", (event) => {
+
+        if (event.key === "Enter") {
+            unlock();
+        }
+
+    });
+
+
+    // Lock button
+    const lockBtn = document.getElementById("lock");
+
+    if (lockBtn) {
+        lockBtn.addEventListener("click", lock);
+    }
+
+
+    // Check previous session
+    if (
+        sessionStorage.getItem("studyosUnlocked") === "true"
+    ) {
+
+        gate.classList.add("hidden");
+        app.classList.remove("hidden");
+
+    } else {
+
+        gate.classList.remove("hidden");
+        app.classList.add("hidden");
+
+    }
+
+});
 
 /* =========================================================
    SUBJECT BUTTONS
